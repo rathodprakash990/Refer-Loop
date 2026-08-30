@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Refer-Loop | Refer • Earn • Reward</title>
+
+<meta name="description"
+content="Discover referral opportunities, share eligible offers and track your rewards with Refer-Loop.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f7f8fc;
+    color:#10142f;
+    line-height:1.5;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#080b2b;
+    color:white;
+    box-shadow:0 3px 15px rgba(0,0,0,.15);
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    min-height:72px;
+    padding:0 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    color:white;
+    text-decoration:none;
+    font-size:25px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#ffd21c;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#fff;
+    text-decoration:none;
+    font-size:15px;
+}
+
+.nav-links a:hover{
+    color:#ffd21c;
+}
+
+.auth-buttons{
+    display:flex;
+    gap:8px;
+}
+
+.btn{
+    border:none;
+    border-radius:10px;
+    padding:12px 18px;
+    font-weight:700;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.login-btn{
+    background:transparent;
+    color:white;
+    border:1px solid #777;
+}
+
+.signup-btn{
+    background:#ffd21c;
+    color:#111;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#0c0d3c,#3213a5,#17165e);
+    color:white;
+    padding:75px 20px;
+}
+
+.hero-container{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:55px;
+    align-items:center;
+}
+
+.hero h1{
+    font-size:55px;
+    line-height:1.08;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#ffd21c;
+}
+
+.hero-text{
+    color:#ddd;
+    font-size:18px;
+    max-width:620px;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+    background:#ffd21c;
+    color:#111;
+}
+
+.outline-btn{
+    background:transparent;
+    color:white;
+    border:1px solid #aaa;
+}
+
+.hero-card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:24px;
+    padding:32px;
+    backdrop-filter:blur(10px);
+}
+
+.hero-card h2{
+    margin-bottom:20px;
+}
+
+.hero-check{
+    margin:15px 0;
+    color:#c4ffb0;
+}
+
+.hero-card .signup-btn{
+    width:100%;
+    margin-top:15px;
+}
+
+/* GENERAL SECTION */
+
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:65px 20px;
+}
+
+.section-heading{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.section-heading h2{
+    font-size:30px;
+}
+
+.section-heading a{
+    color:#5420df;
+    text-decoration:none;
+    font-weight:700;
+}
+
+/* OFFERS */
+
+.offers-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.offer-card{
+    background:white;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 5px 25px rgba(0,0,0,.07);
+    transition:.2s;
+}
+
+.offer-card:hover{
+    transform:translateY(-4px);
+}
+
+.offer-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
+}
+
+.offer-icon{
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    background:#eee;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+}
+
+.reward-badge{
+    background:#dcffdf;
+    color:#078b2d;
+    padding:6px 10px;
+    border-radius:8px;
+    font-weight:800;
+    font-size:13px;
+}
+
+.offer-card h3{
+    margin-bottom:7px;
+}
+
+.offer-card p{
+    color:#666;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.offer-info{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#777;
+    margin-bottom:15px;
+}
+
+.offer-button{
+    width:100%;
+    padding:11px;
+    border:1px solid #5a26e8;
+    background:white;
+    color:#5420df;
+    border-radius:9px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.offer-button:hover{
+    background:#f1edff;
+}
+
+/* NOTE */
+
+.demo-note{
+    margin-top:18px;
+    padding:14px 16px;
+    background:#fff8dc;
+    border:1px solid #f0df8a;
+    border-radius:10px;
+    color:#6d5b00;
+    font-size:13px;
+}
+
+/* GAMES */
+
+.games-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.game-card{
+    background:white;
+    border-radius:20px;
+    padding:28px;
+    box-shadow:0 5px 25px rgba(0,0,0,.06);
+}
+
+.game-icon{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.game-card h3{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.game-card p{
+    color:#666;
+}
+
+.game-button{
+    margin-top:18px;
+    background:#5825e8;
+    color:white;
+}
+
+/* LEADERBOARD */
+
+.leaderboard{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 5px 25px rgba(0,0,0,.06);
+}
+
+.rank{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 5px;
+    border-bottom:1px solid #eee;
+}
+
+.rank:last-child{
+    border-bottom:none;
+}
+
+.rank-name{
+    font-weight:700;
+}
+
+.rank-value{
+    color:#0a9d32;
+    font-weight:800;
+}
+
+/* HOW IT WORKS */
+
+.steps-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.step-card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.step-number{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#5725e7;
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:0 auto 15px;
+    font-weight:800;
+}
+
+.step-card h3{
+    margin-bottom:8px;
+}
+
+.step-card p{
+    color:#666;
+    font-size:14px;
+}
+
+/* FEATURES */
+
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.feature{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.feature-icon{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:#666;
+    font-size:14px;
+}
+
+/* CTA */
+
+.cta{
+    max-width:1160px;
+    margin:0 auto 65px;
+    padding:45px 30px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#1a115f,#5725e8);
+    color:white;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.cta p{
+    color:#ddd;
+    margin-bottom:20px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#080b2b;
+    color:white;
+    padding:45px 20px;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+
+.footer-logo{
+    font-size:24px;
+    font-weight:800;
+}
+
+.footer-logo span{
+    color:#ffd21c;
+}
+
+.footer-links{
+    margin:20px 0;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.footer-links a{
+    color:#ccc;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.footer-description{
+    color:#999;
+    font-size:13px;
+}
+
+/* MOBILE MENU BUTTON */
+
+.menu-button{
+    display:none;
+    background:transparent;
+    color:white;
+    border:1px solid #777;
+    border-radius:8px;
+    padding:8px 11px;
+    font-size:20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-button{
+        display:block;
+    }
+
+    .hero-container{
+        grid-template-columns:1fr;
+    }
+
+    .offers-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .steps-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .features-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        min-height:65px;
+        padding:0 15px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .login-btn{
+        display:none;
+    }
+
+    .hero{
+        padding:55px 18px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero-text{
+        font-size:16px;
+    }
+
+    section{
+        padding:45px 15px;
+    }
+
+    .section-heading{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .section-heading h2{
+        font-size:25px;
+    }
+
+    .offers-grid,
+    .games-grid,
+    .steps-grid,
+    .features-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-buttons .btn{
+        width:100%;
+    }
+
+    .cta{
+        margin:0 15px 45px;
+    }
+
+    .cta h2{
+        font-size:26px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="navbar">
+
+<a href="#home" class="logo">
+Refer<span>-Loop</span>
+</a>
+
+<nav class="nav-links">
+
+<a href="#home">Home</a>
+<a href="#offers">Offers</a>
+<a href="#games">Games</a>
+<a href="#leaderboard">Leaderboard</a>
+<a href="#how">How It Works</a>
+
+</nav>
+
+<div class="auth-buttons">
+
+<button class="btn login-btn" onclick="loginRequired()">
+Login
+</button>
+
+<button class="btn signup-btn" onclick="loginRequired()">
+Sign Up
+</button>
+
+</div>
+
+<button class="menu-button" onclick="menuMessage()">
+☰
+</button>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<div class="hero" id="home">
+
+<div class="hero-container">
+
+<div>
+
+<h1>
+Refer. Earn.<br>
+<span>Get Rewarded!</span>
+</h1>
+
+<p class="hero-text">
+Discover referral opportunities, share eligible offers
+with your friends and track your rewards in one place.
+</p>
+
+<div class="hero-buttons">
+
+<button class="btn primary-btn"
+onclick="goToOffers()">
+Explore Offers →
+</button>
+
+<button class="btn outline-btn"
+onclick="goToHow()">
+How It Works
+</button>
+
+</div>
+
+</div>
+
+
+<div class="hero-card">
+
+<h2>Join Refer-Loop</h2>
+
+<div class="hero-check">
+✓ Browse offers without an account
+</div>
+
+<div class="hero-check">
+✓ Create an account to refer
+</div>
+
+<div class="hero-check">
+✓ Track eligible rewards
+</div>
+
+<div class="hero-check">
+✓ Simple and transparent system
+</div>
+
+<button class="btn signup-btn"
+onclick="loginRequired()">
+Create Free Account →
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- OFFERS -->
+
+<section id="offers">
+
+<div class="section-heading">
+
+<h2>🔥 Featured Referral Offers</h2>
+
+<a href="#" onclick="showAllOffers(event)">
+View All Offers →
+</a>
+
+</div>
+
+
+<div class="offers-grid">
+
+
+<!-- OFFER 1 -->
+
+<div class="offer-card">
+
+<div class="offer-top">
+
+<div class="offer-icon">
+📱
+</div>
+
+<div class="reward-badge">
+Demo
+</div>
+
+</div>
+
+<h3>Sample Offer 1</h3>
+
+<p>
+Referral opportunity details will appear here.
+</p>
+
+<div class="offer-info">
+<span>Reward</span>
+<span>See terms</span>
+</div>
+
+<button class="offer-button"
+onclick="openOffer('Sample Offer 1')">
+View Offer
+</button>
+
+</div>
+
+
+<!-- OFFER 2 -->
+
+<div class="offer-card">
+
+<div class="offer-top">
+
+<div class="offer-icon">
+💳
+</div>
+
+<div class="reward-badge">
+Demo
+</div>
+
+</div>
+
+<h3>Sample Offer 2</h3>
+
+<p>
+Complete the eligible action according to the offer terms.
+</p>
+
+<div class="offer-info">
+<span>Reward</span>
+<span>See terms</span>
+</div>
+
+<button class="offer-button"
+onclick="openOffer('Sample Offer 2')">
+View Offer
+</button>
+
+</div>
+
+
+<!-- OFFER 3 -->
+
+<div class="offer-card">
+
+<div class="offer-top">
+
+<div class="offer-icon">
+🎁
+</div>
+
+<div class="reward-badge">
+Demo
+</div>
+
+</div>
+
+<h3>Sample Offer 3</h3>
+
+<p>
+Only eligible referrals will qualify for rewards.
+</p>
+
+<div class="offer-info">
+<span>Reward</span>
+<span>See terms</span>
+</div>
+
+<button class="offer-button"
+onclick="openOffer('Sample Offer 3')">
+View Offer
+</button>
+
+</div>
+
+
+<!-- OFFER 4 -->
+
+<div class="offer-card">
+
+<div class="offer-top">
+
+<div class="offer-icon">
+⭐
+</div>
+
+<div class="reward-badge">
+Demo
+</div>
+
+</div>
+
+<h3>Sample Offer 4</h3>
+
+<p>
+Offer information will be updated from the admin panel.
+</p>
+
+<div class="offer-info">
+<span>Reward</span>
+<span>See terms</span>
+</div>
+
+<button class="offer-button"
+onclick="openOffer('Sample Offer 4')">
+View Offer
+</button>
+
+</div>
+
+
+</div>
+
+
+<div class="demo-note">
+
+<strong>Demo Notice:</strong>
+The offers shown above are placeholders for the website design.
+Real offers, rewards and referral links will only be added after
+their terms and eligibility requirements are verified.
+
+</div>
+
+</section>
+
+
+<!-- GAMES -->
+
+<section id="games">
+
+<div class="section-heading">
+
+<h2>🎮 Play Mini Games</h2>
+
+</div>
+
+
+<div class="games-grid">
+
+
+<div class="game-card">
+
+<div class="game-icon">
+🧠
+</div>
+
+<h3>Quiz Game</h3>
+
+<p>
+Answer questions, test your knowledge and collect points.
+</p>
+
+<button class="btn game-button"
+onclick="gameComing('Quiz Game')">
+Play Now
+</button>
+
+</div>
+
+
+<div class="game-card">
+
+<div class="game-icon">
+🎯
+</div>
+
+<h3>Memory Game</h3>
+
+<p>
+Test your memory with a simple and fun challenge.
+</p>
+
+<button class="btn game-button"
+onclick="gameComing('Memory Game')">
+Play Now
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- LEADERBOARD -->
+
+<section id="leaderboard">
+
+<div class="section-heading">
+
+<h2>🏆 Leaderboard</h2>
+
+</div>
+
+
+<div class="leaderboard">
+
+<div class="rank">
+
+<span class="rank-name">
+🥇 Top User
+</span>
+
+<span class="rank-value">
+Coming Soon
+</span>
+
+</div>
+
+
+<div class="rank">
+
+<span class="rank-name">
+🥈 Second User
+</span>
+
+<span class="rank-value">
+Coming Soon
+</span>
+
+</div>
+
+
+<div class="rank">
+
+<span class="rank-name">
+🥉 Third User
+</span>
+
+<span class="rank-value">
+Coming Soon
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section id="how">
+
+<div class="section-heading">
+
+<h2>How It Works</h2>
+
+</div>
+
+
+<div class="steps-grid">
+
+
+<div class="step-card">
+
+<div class="step-number">
+1
+</div>
+
+<h3>Browse</h3>
+
+<p>
+Explore available referral opportunities without creating an account.
+</p>
+
+</div>
+
+
+<div class="step-card">
+
+<div class="step-number">
+2
+</div>
+
+<h3>Create Account</h3>
+
+<p>
+Sign up when you want to refer an offer or track your rewards.
+</p>
+
+</div>
+
+
+<div class="step-card">
+
+<div class="step-number">
+3
+</div>
+
+<h3>Share</h3>
+
+<p>
+Use your eligible referral link and share it with others.
+</p>
+
+</div>
+
+
+<div class="step-card">
+
+<div class="step-number">
+4
+</div>
+
+<h3>Get Rewarded</h3>
+
+<p>
+Eligible and approved rewards will appear in your account.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section>
+
+<div class="section-heading">
+
+<h2>Why Refer-Loop?</h2>
+
+</div>
+
+
+<div class="features-grid">
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🔎
+</div>
+
+<h3>Discover Offers</h3>
+
+<p>
+Find referral opportunities in one convenient place.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+📊
+</div>
+
+<h3>Track Rewards</h3>
+
+<p>
+Your future dashboard can show pending, approved and paid rewards.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🔐
+</div>
+
+<h3>Transparent</h3>
+
+<p>
+Offer conditions and eligibility should be clearly displayed.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<div class="cta">
+
+<h2>Ready to Start?</h2>
+
+<p>
+Create your free account when you're ready to refer and track rewards.
+</p>
+
+<button class="btn signup-btn"
+onclick="loginRequired()">
+Create Free Account
+</button>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-container">
+
+<div class="footer-logo">
+Refer<span>-Loop</span>
+</div>
+
+<div class="footer-links">
+
+<a href="#home">Home</a>
+<a href="#offers">Offers</a>
+<a href="#games">Games</a>
+<a href="#how">How It Works</a>
+<a href="#">Privacy</a>
+<a href="#">Terms</a>
+<a href="#">Contact</a>
+
+</div>
+
+<p class="footer-description">
+© 2026 Refer-Loop. All rights reserved.
+</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+
+function goToOffers(){
+
+document.getElementById("offers").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+function goToHow(){
+
+document.getElementById("how").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+function loginRequired(){
+
+alert(
+"Login and Sign Up will be connected in the next development step."
+);
+
+}
+
+
+function menuMessage(){
+
+alert(
+"Mobile menu will be connected in the next development step."
+);
+
+}
+
+
+function openOffer(name){
+
+alert(
+name +
+"\n\nThis is a demo offer. Real referral links and reward terms will be added after verification."
+);
+
+}
+
+
+function showAllOffers(event){
+
+event.preventDefault();
+
+alert(
+"All referral offers will be available here."
+);
+
+}
+
+
+function gameComing(name){
+
+alert(
+name +
+"\n\nThe game will be added in the next development step."
+);
+
+}
+
+</script>
+
+
+</body>
+  </html>
