@@ -1,890 +1,1046 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ReferLoop | Refer • Complete Tasks • Earn</title>
+  <title>ReferLoop — Complete Tasks. Earn Rewards.</title>
+  <meta name="description" content="ReferLoop helps you discover tasks, complete them, earn eligible rewards and grow through referrals.">
 
-<meta name="description"
-content="ReferLoop helps users discover offers, complete tasks, earn rewards and track their progress.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body{
-  background:#f5f6ff;
-  color:#17172b;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-header{
-  background:#09092d;
-  color:white;
-  padding:16px 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f7f9fc;
+      color: #172033;
+      line-height: 1.6;
+    }
 
-.logo{
-  font-size:27px;
-  font-weight:800;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-.logo span{
-  color:#ffd21c;
-}
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
 
-nav{
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
+    /* HEADER */
 
-button{
-  border:none;
-  cursor:pointer;
-  font-size:15px;
-  font-weight:700;
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e9edf3;
+    }
 
-.lang{
-  background:#ffffff15;
-  color:white;
-  border:1px solid #ffffff55;
-  padding:10px 14px;
-  border-radius:10px;
-}
+    .navbar {
+      max-width: 1180px;
+      margin: auto;
+      height: 72px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-.signup{
-  background:#ffd21c;
-  color:#11112c;
-  padding:12px 20px;
-  border-radius:12px;
-}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 800;
+      color: #172033;
+    }
 
-.hero{
-  background:linear-gradient(135deg,#21106f,#3818b5,#21106f);
-  color:white;
-  padding:70px 7% 80px;
-}
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #635bff, #8b5cf6);
+      color: white;
+      font-size: 21px;
+      box-shadow: 0 8px 20px rgba(99,91,255,0.25);
+    }
 
-.hero h1{
-  font-size:54px;
-  line-height:1.05;
-  max-width:700px;
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
 
-.hero h1 span{
-  color:#ffd21c;
-}
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #596579;
+      transition: 0.2s;
+    }
 
-.hero p{
-  font-size:19px;
-  line-height:1.7;
-  max-width:700px;
-  margin:25px 0;
-  color:#eeeeff;
-}
+    .nav-links a:hover {
+      color: #635bff;
+    }
 
-.hero-buttons{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.primary{
-  background:#ffd21c;
-  color:#11112c;
-  padding:15px 25px;
-  border-radius:12px;
-}
+    .language {
+      border: 1px solid #dfe4ec;
+      background: white;
+      padding: 9px 10px;
+      border-radius: 9px;
+      color: #374151;
+      font-weight: 600;
+    }
 
-.secondary{
-  background:transparent;
-  color:white;
-  border:1px solid #ffffff99;
-  padding:15px 25px;
-  border-radius:12px;
-}
+    .login-btn {
+      padding: 10px 15px;
+      border: 1px solid #dce1e9;
+      border-radius: 9px;
+      background: white;
+      font-weight: 700;
+      color: #273143;
+    }
 
-.container{
-  width:90%;
-  max-width:1100px;
-  margin:auto;
-}
+    .signup-btn {
+      padding: 10px 17px;
+      border: none;
+      border-radius: 9px;
+      background: #635bff;
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 7px 18px rgba(99,91,255,0.22);
+    }
 
-.section{
-  padding:55px 0;
-}
+    .menu-btn {
+      display: none;
+      border: none;
+      background: transparent;
+      font-size: 27px;
+      color: #172033;
+    }
 
-.section h2{
-  text-align:center;
-  font-size:32px;
-  margin-bottom:30px;
-}
+    /* HERO */
 
-.cards{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
+    .hero {
+      padding: 90px 20px 80px;
+      background:
+        radial-gradient(circle at top right, rgba(99,91,255,0.13), transparent 35%),
+        linear-gradient(180deg, #ffffff, #f7f9fc);
+    }
 
-.card{
-  background:white;
-  border-radius:18px;
-  padding:25px;
-  box-shadow:0 5px 20px #0000000d;
-  border:1px solid #eeeeff;
-}
+    .hero-container {
+      max-width: 1180px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 60px;
+    }
 
-.card h3{
-  margin:12px 0;
-  font-size:21px;
-}
+    .badge {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 30px;
+      background: #eeedff;
+      color: #5148d8;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
 
-.card p{
-  color:#666;
-  line-height:1.6;
-}
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.05;
+      letter-spacing: -2.5px;
+      margin-bottom: 22px;
+    }
 
-.icon{
-  font-size:35px;
-}
+    .hero h1 span {
+      color: #635bff;
+    }
 
-.offer{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-}
+    .hero p {
+      max-width: 610px;
+      color: #667085;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
 
-.reward{
-  color:#159447;
-  font-weight:800;
-  margin-top:8px;
-}
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-.task-btn{
-  background:#3215a5;
-  color:white;
-  padding:11px 16px;
-  border-radius:10px;
-  white-space:nowrap;
-}
+    .primary-btn {
+      border: none;
+      background: #635bff;
+      color: white;
+      padding: 14px 21px;
+      border-radius: 10px;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(99,91,255,0.25);
+    }
 
-.steps{
-  counter-reset:step;
-}
+    .secondary-btn {
+      border: 1px solid #dfe4ec;
+      background: white;
+      padding: 14px 21px;
+      border-radius: 10px;
+      font-weight: 700;
+      color: #273143;
+    }
 
-.step{
-  background:white;
-  padding:22px;
-  border-radius:15px;
-  margin:12px 0;
-  display:flex;
-  gap:15px;
-  align-items:center;
-  box-shadow:0 3px 15px #00000008;
-}
+    /* HERO CARD */
 
-.step-number{
-  background:#ffd21c;
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  flex-shrink:0;
-}
+    .dashboard-card {
+      background: white;
+      border: 1px solid #e6eaf0;
+      border-radius: 22px;
+      padding: 25px;
+      box-shadow: 0 25px 60px rgba(25,35,55,0.10);
+    }
 
-.dashboard{
-  background:#0c0c35;
-  color:white;
-  border-radius:22px;
-  padding:30px;
-}
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
 
-.code-box{
-  background:#ffffff12;
-  border:1px solid #ffffff25;
-  padding:18px;
-  border-radius:13px;
-  margin-top:15px;
-}
+    .card-title {
+      font-size: 14px;
+      color: #667085;
+    }
 
-.code{
-  font-size:24px;
-  color:#ffd21c;
-  font-weight:800;
-  letter-spacing:2px;
-}
+    .balance {
+      font-size: 31px;
+      font-weight: 800;
+      margin-top: 4px;
+    }
 
-.copy{
-  background:#ffd21c;
-  padding:10px 15px;
-  border-radius:9px;
-  margin-left:10px;
-}
+    .status {
+      padding: 7px 10px;
+      height: fit-content;
+      border-radius: 20px;
+      background: #ecfdf3;
+      color: #15803d;
+      font-size: 12px;
+      font-weight: 700;
+    }
 
-footer{
-  background:#09092d;
-  color:#bbb;
-  text-align:center;
-  padding:30px 15px;
-  margin-top:20px;
-}
+    .progress-box {
+      background: #f5f6fa;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
 
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:#00000099;
-  z-index:100;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 9px;
+    }
 
-.modal-box{
-  background:white;
-  width:100%;
-  max-width:420px;
-  border-radius:20px;
-  padding:28px;
-  position:relative;
-}
+    .progress {
+      height: 8px;
+      background: #e1e4eb;
+      border-radius: 10px;
+      overflow: hidden;
+    }
 
-.close{
-  position:absolute;
-  right:18px;
-  top:15px;
-  background:none;
-  font-size:25px;
-}
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 72%;
+      background: #635bff;
+      border-radius: 10px;
+    }
 
-.modal-box h2{
-  margin-bottom:20px;
-}
+    .mini-task {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid #edf0f4;
+    }
 
-input{
-  width:100%;
-  padding:14px;
-  margin:8px 0;
-  border:1px solid #ddd;
-  border-radius:10px;
-  font-size:15px;
-}
+    .mini-task:last-child {
+      border-bottom: none;
+    }
 
-.submit{
-  width:100%;
-  margin-top:12px;
-  padding:14px;
-  background:#3215a5;
-  color:white;
-  border-radius:10px;
-}
+    .mini-task strong {
+      display: block;
+      font-size: 14px;
+    }
 
-.mobile-menu{
-  display:none;
-}
+    .mini-task small {
+      color: #8992a3;
+    }
 
-@media(max-width:750px){
+    .reward {
+      font-weight: 800;
+      color: #635bff;
+    }
 
-  header{
-    padding:14px 4%;
-  }
+    /* SECTIONS */
 
-  .logo{
-    font-size:23px;
-  }
+    section {
+      padding: 85px 20px;
+    }
 
-  nav .lang{
-    display:none;
-  }
+    .container {
+      max-width: 1180px;
+      margin: auto;
+    }
 
-  .hero{
-    padding:50px 6% 60px;
-  }
+    .section-heading {
+      max-width: 650px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
 
-  .hero h1{
-    font-size:42px;
-  }
+    .section-heading h2 {
+      font-size: 36px;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
 
-  .hero p{
-    font-size:17px;
-  }
+    .section-heading p {
+      color: #6b7280;
+    }
 
-  .cards{
-    grid-template-columns:1fr;
-  }
+    /* HOW IT WORKS */
 
-  .offer{
-    align-items:flex-start;
-  }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
 
-  .section h2{
-    font-size:28px;
-  }
-}
-</style>
+    .step {
+      background: white;
+      border: 1px solid #e6eaf0;
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: #eeedff;
+      color: #635bff;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .step h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .step p {
+      font-size: 14px;
+      color: #737d8e;
+    }
+
+    /* TASKS */
+
+    .tasks {
+      background: white;
+    }
+
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .task-card {
+      border: 1px solid #e6eaf0;
+      border-radius: 17px;
+      padding: 23px;
+      background: #fff;
+    }
+
+    .task-icon {
+      font-size: 27px;
+      margin-bottom: 13px;
+    }
+
+    .task-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .task-card p {
+      color: #727c8e;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .task-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .task-reward {
+      font-weight: 800;
+      color: #635bff;
+    }
+
+    .task-button {
+      border: none;
+      background: #635bff;
+      color: white;
+      padding: 9px 13px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* REFERRAL */
+
+    .referral-box {
+      background: #171c2b;
+      color: white;
+      border-radius: 22px;
+      padding: 50px;
+      display: grid;
+      grid-template-columns: 1fr 0.7fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .referral-box h2 {
+      font-size: 36px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .referral-box p {
+      color: #b8bfcd;
+    }
+
+    .code-box {
+      background: white;
+      border-radius: 14px;
+      padding: 18px;
+      color: #172033;
+    }
+
+    .code-label {
+      font-size: 12px;
+      color: #737d8e;
+      margin-bottom: 6px;
+    }
+
+    .code {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #635bff;
+    }
+
+    /* FAQ */
+
+    .faq {
+      max-width: 780px;
+      margin: auto;
+    }
+
+    details {
+      background: white;
+      border: 1px solid #e5e9ef;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      padding: 18px 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    details p {
+      color: #697386;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    /* CTA */
+
+    .cta {
+      text-align: center;
+      background: #f0efff;
+    }
+
+    .cta h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #687185;
+      margin-bottom: 25px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111624;
+      color: white;
+      padding: 50px 20px 25px;
+    }
+
+    .footer-grid {
+      max-width: 1180px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    .footer-brand p {
+      color: #9ba4b5;
+      font-size: 14px;
+      margin-top: 14px;
+      max-width: 300px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 14px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #9ba4b5;
+      font-size: 14px;
+      margin: 8px 0;
+    }
+
+    .footer-bottom {
+      max-width: 1180px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #272d3b;
+      color: #8d96a7;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* MOBILE MENU */
+
+    @media (max-width: 850px) {
+
+      .nav-links,
+      .nav-actions {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .navbar.mobile-open {
+        position: relative;
+      }
+
+      .navbar.mobile-open .nav-links {
+        display: flex;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 18px;
+        border-bottom: 1px solid #e7ebf0;
+      }
+
+      .navbar.mobile-open .nav-actions {
+        display: flex;
+        position: absolute;
+        top: 270px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 15px 20px;
+        border-bottom: 1px solid #e7ebf0;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .task-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .referral-box {
+        grid-template-columns: 1fr;
+        padding: 35px 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .steps,
+      .task-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading h2,
+      .cta h2,
+      .referral-box h2 {
+        font-size: 30px;
+      }
+
+      .dashboard-card {
+        padding: 19px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">Refer<span>Loop</span></div>
+  <!-- HEADER -->
 
-  <nav>
-    <button class="lang" onclick="changeLanguage()">
-      🌐 <span id="language">English</span>
-    </button>
+  <header>
+    <nav class="navbar" id="navbar">
 
-    <button class="signup" onclick="openModal()">
-      <span data-en="Sign Up" data-hi="साइन अप" data-gu="સાઇન અપ">Sign Up</span>
-    </button>
-  </nav>
-</header>
+      <a href="#" class="logo">
+        <div class="logo-icon">↗</div>
+        <span>ReferLoop</span>
+      </a>
 
+      <div class="nav-links">
+        <a href="#how">How It Works</a>
+        <a href="#tasks">Tasks</a>
+        <a href="#rewards">Rewards</a>
+        <a href="#faq">FAQ</a>
+      </div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
+      <div class="nav-actions">
 
-    <h1>
-      <span data-en="Refer. Complete Tasks."
-            data-hi="रेफर करें। टास्क पूरे करें।"
-            data-gu="રેફર કરો. ટાસ્ક પૂર્ણ કરો.">
-        Refer. Complete Tasks.
-      </span>
-      <br>
+        <select class="language" id="language">
+          <option value="en">English</option>
+          <option value="hi">हिंदी</option>
+          <option value="gu">ગુજરાતી</option>
+        </select>
 
-      <span data-en="Get Rewarded!"
-            data-hi="रिवॉर्ड पाएं!"
-            data-gu="રિવોર્ડ મેળવો!">
-        Get Rewarded!
-      </span>
-    </h1>
+        <button class="login-btn" onclick="loginMessage()">
+          Login
+        </button>
 
-    <p
-      data-en="Discover referral offers, complete tasks, earn rewards and track your rewards — all in one place."
-      data-hi="रेफरल ऑफर खोजें, टास्क पूरे करें, रिवॉर्ड कमाएं और अपने रिवॉर्ड ट्रैक करें — सब एक जगह।"
-      data-gu="રેફરલ ઓફર્સ શોધો, ટાસ્ક પૂર્ણ કરો, રિવોર્ડ મેળવો અને તમારા રિવોર્ડ ટ્રેક કરો — બધું એક જ જગ્યાએ."
-    >
-      Discover referral offers, complete tasks, earn rewards and track your rewards — all in one place.
-    </p>
+        <button class="signup-btn" onclick="signupMessage()">
+          Sign Up
+        </button>
 
-    <div class="hero-buttons">
+      </div>
 
-      <button class="primary" onclick="scrollToOffers()"
-        data-en="Explore Offers →"
-        data-hi="ऑफर्स देखें →"
-        data-gu="ઓફર્સ જુઓ →">
-        Explore Offers →
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+        ☰
       </button>
 
-      <button class="secondary" onclick="scrollToHow()"
-        data-en="How It Works"
-        data-hi="यह कैसे काम करता है"
-        data-gu="આ કેવી રીતે કામ કરે છે">
-        How It Works
-      </button>
-
-    </div>
-
-  </div>
-</section>
+    </nav>
+  </header>
 
 
-<!-- OFFERS -->
-<section class="section" id="offers">
-  <div class="container">
+  <!-- HERO -->
 
-    <h2
-      data-en="Featured Offers"
-      data-hi="फीचर्ड ऑफर्स"
-      data-gu="ફીચર્ડ ઓફર્સ">
-      Featured Offers
-    </h2>
+  <main>
 
-    <div class="cards">
+    <section class="hero">
 
-      <div class="card">
-        <div class="icon">🎁</div>
-
-        <h3>Offer 01</h3>
-
-        <p
-          data-en="Complete the eligible task and receive the listed reward."
-          data-hi="योग्य टास्क पूरा करें और दिया गया रिवॉर्ड प्राप्त करें।"
-          data-gu="યોગ્ય ટાસ્ક પૂર્ણ કરો અને દર્શાવેલ રિવોર્ડ મેળવો.">
-          Complete the eligible task and receive the listed reward.
-        </p>
-
-        <div class="reward">Reward: ₹50</div>
-
-        <br>
-
-        <button class="task-btn" onclick="startTask('Offer 01')"
-          data-en="View Task"
-          data-hi="टास्क देखें"
-          data-gu="ટાસ્ક જુઓ">
-          View Task
-        </button>
-      </div>
-
-
-      <div class="card">
-        <div class="icon">💰</div>
-
-        <h3>Offer 02</h3>
-
-        <p
-          data-en="Check the offer requirements before completing the task."
-          data-hi="टास्क पूरा करने से पहले ऑफर की शर्तें देखें।"
-          data-gu="ટાસ્ક પૂર્ણ કરતા પહેલા ઓફરની શરતો તપાસો.">
-          Check the offer requirements before completing the task.
-        </p>
-
-        <div class="reward">Reward: ₹100</div>
-
-        <br>
-
-        <button class="task-btn" onclick="startTask('Offer 02')"
-          data-en="View Task"
-          data-hi="टास्क देखें"
-          data-gu="ટાસ્ક જુઓ">
-          View Task
-        </button>
-      </div>
-
-
-      <div class="card">
-        <div class="icon">🏆</div>
-
-        <h3>Offer 03</h3>
-
-        <p
-          data-en="Complete all eligible requirements to qualify for the reward."
-          data-hi="रिवॉर्ड पाने के लिए सभी योग्य शर्तें पूरी करें।"
-          data-gu="રિવોર્ડ મેળવવા માટે તમામ યોગ્ય શરતો પૂર્ણ કરો.">
-          Complete all eligible requirements to qualify for the reward.
-        </p>
-
-        <div class="reward">Reward: ₹150</div>
-
-        <br>
-
-        <button class="task-btn" onclick="startTask('Offer 03')"
-          data-en="View Task"
-          data-hi="टास्क देखें"
-          data-gu="ટાસ્ક જુઓ">
-          View Task
-        </button>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
-  <div class="container">
-
-    <h2
-      data-en="How ReferLoop Works"
-      data-hi="ReferLoop कैसे काम करता है"
-      data-gu="ReferLoop કેવી રીતે કામ કરે છે">
-      How ReferLoop Works
-    </h2>
-
-    <div class="steps">
-
-      <div class="step">
-        <div class="step-number">1</div>
+      <div class="hero-container">
 
         <div>
-          <h3
-            data-en="Explore Offers"
-            data-hi="ऑफर्स देखें"
-            data-gu="ઓફર્સ જુઓ">
-            Explore Offers
-          </h3>
 
-          <p
-            data-en="Browse available referral offers and tasks."
-            data-hi="उपलब्ध रेफरल ऑफर्स और टास्क देखें।"
-            data-gu="ઉપલબ્ધ રેફરલ ઓફર્સ અને ટાસ્ક જુઓ.">
-            Browse available referral offers and tasks.
+          <div class="badge">
+            ✨ Welcome to ReferLoop
+          </div>
+
+          <h1>
+            Complete Tasks.<br>
+            <span>Earn Rewards.</span><br>
+            Grow Together.
+          </h1>
+
+          <p>
+            ReferLoop brings tasks, rewards and referrals together
+            in one simple platform. Discover eligible opportunities,
+            complete tasks and track your progress.
           </p>
+
+          <div class="hero-buttons">
+
+            <button class="primary-btn" onclick="signupMessage()">
+              Get Started →
+            </button>
+
+            <a href="#how" class="secondary-btn">
+              See How It Works
+            </a>
+
+          </div>
+
         </div>
+
+
+        <div class="dashboard-card">
+
+          <div class="card-top">
+
+            <div>
+              <div class="card-title">Your Progress</div>
+              <div class="balance">₹1,240</div>
+            </div>
+
+            <div class="status">
+              Active
+            </div>
+
+          </div>
+
+
+          <div class="progress-box">
+
+            <div class="progress-header">
+              <span>Monthly progress</span>
+              <span>72%</span>
+            </div>
+
+            <div class="progress">
+              <span></span>
+            </div>
+
+          </div>
+
+
+          <div class="mini-task">
+            <div>
+              <strong>Complete your profile</strong>
+              <small>Task</small>
+            </div>
+
+            <div class="reward">
+              +₹50
+            </div>
+          </div>
+
+
+          <div class="mini-task">
+            <div>
+              <strong>Invite a friend</strong>
+              <small>Referral</small>
+            </div>
+
+            <div class="reward">
+              +₹100
+            </div>
+          </div>
+
+
+          <div class="mini-task">
+            <div>
+              <strong>Explore new task</strong>
+              <small>Available</small>
+            </div>
+
+            <div class="reward">
+              +₹75
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
+    </section>
 
-      <div class="step">
-        <div class="step-number">2</div>
 
-        <div>
-          <h3
-            data-en="Get Your ReferLoop Code"
-            data-hi="अपना ReferLoop कोड पाएं"
-            data-gu="તમારો ReferLoop કોડ મેળવો">
-            Get Your ReferLoop Code
-          </h3>
+    <!-- HOW IT WORKS -->
 
-          <p
-            data-en="Create an account to get your unique referral code."
-            data-hi="अपना यूनिक रेफरल कोड पाने के लिए अकाउंट बनाएं।"
-            data-gu="તમારો યુનિક રેફરલ કોડ મેળવવા માટે એકાઉન્ટ બનાવો.">
-            Create an account to get your unique referral code.
+    <section id="how">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>How ReferLoop Works</h2>
+
+          <p>
+            A simple journey designed to help you understand
+            what to do at every step.
           </p>
+
         </div>
+
+
+        <div class="steps">
+
+          <div class="step">
+            <div class="step-number">01</div>
+            <h3>Create Your Account</h3>
+            <p>
+              Sign up and create your ReferLoop account.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">02</div>
+            <h3>Choose a Task</h3>
+            <p>
+              Explore available tasks and check their requirements.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">03</div>
+            <h3>Complete the Task</h3>
+            <p>
+              Follow the instructions and complete the eligible task.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">04</div>
+            <h3>Track Your Reward</h3>
+            <p>
+              Track completed tasks and eligible rewards from your account.
+            </p>
+          </div>
+
+        </div>
+
       </div>
 
+    </section>
 
-      <div class="step">
-        <div class="step-number">3</div>
 
-        <div>
-          <h3
-            data-en="Complete Tasks"
-            data-hi="टास्क पूरे करें"
-            data-gu="ટાસ્ક પૂર્ણ કરો">
-            Complete Tasks
-          </h3>
+    <!-- TASKS -->
 
-          <p
-            data-en="Follow the offer requirements and complete eligible tasks."
-            data-hi="ऑफर की शर्तों का पालन करके योग्य टास्क पूरे करें।"
-            data-gu="ઓફરની શરતોનું પાલન કરીને યોગ્ય ટાસ્ક પૂર્ણ કરો.">
-            Follow the offer requirements and complete eligible tasks.
+    <section class="tasks" id="tasks">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>Explore Tasks</h2>
+
+          <p>
+            Find available opportunities and understand the
+            requirements before starting.
           </p>
+
         </div>
+
+
+        <div class="task-grid">
+
+          <div class="task-card">
+
+            <div class="task-icon">📝</div>
+
+            <h3>Complete Your Profile</h3>
+
+            <p>
+              Add the required information to complete your profile.
+            </p>
+
+            <div class="task-bottom">
+              <span class="task-reward">Reward: ₹50</span>
+              <button class="task-button" onclick="taskMessage()">
+                Complete Task
+              </button>
+            </div>
+
+          </div>
+
+
+          <div class="task-card">
+
+            <div class="task-icon">👥</div>
+
+            <h3>Refer a Friend</h3>
+
+            <p>
+              Share your referral code with eligible friends.
+            </p>
+
+            <div class="task-bottom">
+              <span class="task-reward">Reward: ₹100</span>
+              <button class="task-button" onclick="taskMessage()">
+                Complete Task
+              </button>
+            </div>
+
+          </div>
+
+
+          <div class="task-card">
+
+            <div class="task-icon">🚀</div>
+
+            <h3>Discover New Tasks</h3>
+
+            <p>
+              Explore new tasks and check their eligibility.
+            </p>
+
+            <div class="task-bottom">
+              <span class="task-reward">Reward: ₹75</span>
+              <button class="task-button" onclick="taskMessage()">
+                Complete Task
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
 
+    </section>
 
-      <div class="step">
-        <div class="step-number">4</div>
 
-        <div>
-          <h3
-            data-en="Earn Rewards"
-            data-hi="रिवॉर्ड कमाएं"
-            data-gu="રિવોર્ડ મેળવો">
-            Earn Rewards
-          </h3>
+    <!-- REWARDS -->
 
-          <p
-            data-en="Receive rewards when eligible requirements are successfully completed."
-            data-hi="योग्य शर्तें पूरी होने पर रिवॉर्ड प्राप्त करें।"
-            data-gu="યોગ્ય શરતો સફળતાપૂર્વક પૂર્ણ થયા પછી રિવોર્ડ મેળવો.">
-            Receive rewards when eligible requirements are successfully completed.
+    <section id="rewards">
+
+      <div class="container">
+
+        <div class="referral-box">
+
+          <div>
+
+            <h2>
+              Your Referral Journey Starts Here.
+            </h2>
+
+            <p>
+              Invite eligible users using your personal referral
+              code and track your referral activity from your account.
+            </p>
+
+          </div>
+
+
+          <div class="code-box">
+
+            <div class="code-label">
+              Example Referral Code
+            </div>
+
+            <div class="code">
+              LOOP2026
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section id="faq">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>Frequently Asked Questions</h2>
+
+          <p>
+            Everything you need to know before getting started.
           </p>
-        </div>
-      </div>
 
-
-      <div class="step">
-        <div class="step-number">5</div>
-
-        <div>
-          <h3
-            data-en="Track Your Rewards"
-            data-hi="अपने रिवॉर्ड ट्रैक करें"
-            data-gu="તમારા રિવોર્ડ ટ્રેક કરો">
-            Track Your Rewards
-          </h3>
-
-          <p
-            data-en="Keep track of completed tasks and earned rewards in your account."
-            data-hi="अपने अकाउंट में पूरे किए गए टास्क और रिवॉर्ड ट्रैक करें।"
-            data-gu="તમારા એકાઉન્ટમાં પૂર્ણ થયેલા ટાસ્ક અને રિવોર્ડ ટ્રેક કરો.">
-            Keep track of completed tasks and earned rewards in your account.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- USER DASHBOARD PREVIEW -->
-<section class="section">
-  <div class="container">
-
-    <div class="dashboard">
-
-      <h2
-        data-en="Your ReferLoop Dashboard"
-        data-hi="आपका ReferLoop डैशबोर्ड"
-        data-gu="તમારું ReferLoop ડેશબોર્ડ">
-        Your ReferLoop Dashboard
-      </h2>
-
-      <p
-        data-en="Your referral code will be available after creating an account."
-        data-hi="अकाउंट बनाने के बाद आपका रेफरल कोड उपलब्ध होगा।"
-        data-gu="એકાઉન્ટ બનાવ્યા પછી તમારો રેફરલ કોડ ઉપલબ્ધ થશે.">
-        Your referral code will be available after creating an account.
-      </p>
-
-      <div class="code-box">
-
-        <div
-          data-en="Your ReferLoop Code"
-          data-hi="आपका ReferLoop कोड"
-          data-gu="તમારો ReferLoop કોડ">
-          Your ReferLoop Code
         </div>
 
-        <br>
 
-        <span class="code">RL-DEMO01</span>
-
-        <button class="copy" onclick="copyCode()"
-          data-en="Copy"
-          data-hi="कॉपी"
-          data-gu="કૉપી">
-          Copy
-        </button>
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- JOIN -->
-<section class="section">
-  <div class="container">
-
-    <h2
-      data-en="Join ReferLoop"
-      data-hi="ReferLoop से जुड़ें"
-      data-gu="ReferLoop સાથે જોડાઓ">
-      Join ReferLoop
-    </h2>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="icon">👀</div>
-
-        <h3
-          data-en="Browse Without Account"
-          data-hi="बिना अकाउंट ऑफर्स देखें"
-          data-gu="એકાઉન્ટ વગર ઓફર્સ જુઓ">
-          Browse Without Account
-        </h3>
-
-        <p
-          data-en="You can explore available offers before signing up."
-          data-hi="साइन अप करने से पहले उपलब्ध ऑफर्स देख सकते हैं।"
-          data-gu="સાઇન અપ કરતા પહેલા ઉપલબ્ધ ઓફર્સ જોઈ શકો છો.">
-          You can explore available offers before signing up.
-        </p>
-      </div>
-
-
-      <div class="card">
-        <div class="icon">🔑</div>
-
-        <h3
-          data-en="Create Your Account"
-          data-hi="अपना अकाउंट बनाएं"
-          data-gu="તમારું એકાઉન્ટ બનાવો">
-          Create Your Account
-        </h3>
-
-        <p
-          data-en="Create an account when you want to use your referral code or track rewards."
-          data-hi="रेफरल कोड इस्तेमाल करने या रिवॉर्ड ट्रैक करने के लिए अकाउंट बनाएं।"
-          data-gu="રેફરલ કોડ વાપરવા અથવા રિવોર્ડ ટ્રેક કરવા માટે એકાઉન્ટ બનાવો.">
-          Create an account when you want to use your referral code or track rewards.
-        </p>
-      </div>
-
-
-      <div class="card">
-        <div class="icon">📊</div>
-
-        <h3
-          data-en="Track Progress"
-          data-hi="प्रोग्रेस ट्रैक करें"
-          data-gu="પ્રગતિ ટ્રેક કરો">
-          Track Progress
-        </h3>
-
-        <p
-          data-en="See your completed tasks and eligible rewards in one place."
-          data-hi="अपने पूरे किए गए टास्क और योग्य रिवॉर्ड एक जगह देखें।"
-          data-gu="તમારા પૂર્ણ થયેલા ટાસ્ક અને યોગ્ય રિવોર્ડ એક જ જગ્યાએ જુઓ.">
-          See your completed tasks and eligible rewards in one place.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<footer>
-  <div>© 2026 ReferLoop</div>
-  <br>
-  <div
-    data-en="Refer • Complete Tasks • Earn Rewards"
-    data-hi="रेफर • टास्क पूरे करें • रिवॉर्ड पाएं"
-    data-gu="રેફર • ટાસ્ક પૂર્ણ કરો • રિવોર્ડ મેળવો">
-    Refer • Complete Tasks • Earn Rewards
-  </div>
-</footer>
-
-
-<!-- SIGNUP MODAL -->
-<div class="modal" id="modal">
-
-  <div class="modal-box">
-
-    <button class="close" onclick="closeModal()">×</button>
-
-    <h2
-      data-en="Create Account"
-      data-hi="अकाउंट बनाएं"
-      data-gu="એકાઉન્ટ બનાવો">
-      Create Account
-    </h2>
-
-    <input type="text" placeholder="Name">
-
-    <input type="email" placeholder="Email">
-
-    <input type="password" placeholder="Password">
-
-    <button class="submit" onclick="demoSignup()"
-      data-en="Create Account"
-      data-hi="अकाउंट बनाएं"
-      data-gu="એકાઉન્ટ બનાવો">
-      Create Account
-    </button>
-
-  </div>
-</div>
-
-
-<script>
-
-let currentLanguage = "en";
-
-function changeLanguage(){
-
-  if(currentLanguage === "en"){
-    currentLanguage = "hi";
-  }
-  else if(currentLanguage === "hi"){
-    currentLanguage = "gu";
-  }
-  else{
-    currentLanguage = "en";
-  }
-
-  const elements = document.querySelectorAll("[data-en]");
-
-  elements.forEach(el=>{
-    el.textContent = el.getAttribute("data-" + currentLanguage);
-  });
-
-  const language = document.getElementById("language");
-
-  if(currentLanguage === "en"){
-    language.textContent = "English";
-  }
-  else if(currentLanguage === "hi"){
-    language.textContent = "हिन्दी";
-  }
-  else{
-    language.textContent = "ગુજરાતી";
-  }
-}
-
-
-function scrollToOffers(){
-  document.getElementById("offers").scrollIntoView({
-    behavior:"smooth"
-  });
-}
-
-
-function scrollToHow(){
-  document.getElementById("how").scrollIntoView({
-    behavior:"smooth"
-  });
-}
-
-
-function openModal(){
-  document.getElementById("modal").style.display="flex";
-}
-
-
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-}
-
-
-function demoSignup(){
-
-  alert(
-    currentLanguage === "gu"
-    ? "Account system હજુ demo છે. Backend જોડ્યા પછી real signup કામ કરશે."
-    : currentLanguage === "hi"
-    ? "Account system अभी demo है। Backend जोड़ने के बाद real signup काम करेगा."
-    : "The account system is currently a demo. Real signup will work after connecting a backend."
-  );
-
-}
-
-
-function startTask(name){
-
-  alert(
-    currentLanguage === "gu"
-    ? name + " પસંદ કર્યું. હવે અહીં real task/offer link ઉમેરવાનો રહેશે."
-    : currentLanguage === "hi"
-    ? name + " चुना गया। अब यहां real task/offer link जोड़ना होगा."
-    : name + " selected. A real task/offer link needs to be added here."
-  );
-
-}
-
-
-function copyCode(){
-
-  navigator.clipboard.writeText("RL-DEMO01");
-
-  alert(
-    currentLanguage === "gu"
-    ? "Referral code copy થયો!"
-    : currentLanguage === "hi"
-    ? "Referral code कॉपी हो गया!"
-    : "Referral code copied!"
-  );
-
-}
-
-</script>
-
-</body>
-    </html>
+        <div class="faq">
+
+          <details>
+            <summary>What is ReferLoop?</summary>
+            <p>
+              ReferLoop is a platform designed to organize tasks,
+              referrals and eligible rewards in one place.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>How do I complete a task?</summary>
+            <p>
+              Open an available task, read its requirements,
+              follow the instructions and complete the required action.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>How does the referral system work?</summary>
+            <p>
+              You can use your personal referral code where a
+              referral opportunity is available. Eligibility and
+              rewards depend on the specific task conditions.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>Are rewards guaranteed?</summary>
+            <p>
+              No. Rewards depend on the requir
