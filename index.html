@@ -4,1263 +4,887 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Refer-Loop | Refer • Earn • Reward</title>
+<title>ReferLoop | Refer • Complete Tasks • Earn</title>
 
 <meta name="description"
-content="Discover referral opportunities, share eligible offers and track your rewards with Refer-Loop.">
+content="ReferLoop helps users discover offers, complete tasks, earn rewards and track their progress.">
 
 <style>
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f7f8fc;
-    color:#10142f;
-    line-height:1.5;
+  background:#f5f6ff;
+  color:#17172b;
 }
-
-/* HEADER */
 
 header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:#080b2b;
-    color:white;
-    box-shadow:0 3px 15px rgba(0,0,0,.15);
-}
-
-.navbar{
-    max-width:1200px;
-    margin:auto;
-    min-height:72px;
-    padding:0 20px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
+  background:#09092d;
+  color:white;
+  padding:16px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
 
 .logo{
-    color:white;
-    text-decoration:none;
-    font-size:25px;
-    font-weight:800;
-    white-space:nowrap;
+  font-size:27px;
+  font-weight:800;
 }
 
 .logo span{
-    color:#ffd21c;
+  color:#ffd21c;
 }
 
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:25px;
+nav{
+  display:flex;
+  gap:12px;
+  align-items:center;
 }
 
-.nav-links a{
-    color:#fff;
-    text-decoration:none;
-    font-size:15px;
+button{
+  border:none;
+  cursor:pointer;
+  font-size:15px;
+  font-weight:700;
 }
 
-.nav-links a:hover{
-    color:#ffd21c;
+.lang{
+  background:#ffffff15;
+  color:white;
+  border:1px solid #ffffff55;
+  padding:10px 14px;
+  border-radius:10px;
 }
 
-.auth-buttons{
-    display:flex;
-    gap:8px;
+.signup{
+  background:#ffd21c;
+  color:#11112c;
+  padding:12px 20px;
+  border-radius:12px;
 }
-
-.btn{
-    border:none;
-    border-radius:10px;
-    padding:12px 18px;
-    font-weight:700;
-    cursor:pointer;
-    font-size:14px;
-}
-
-.login-btn{
-    background:transparent;
-    color:white;
-    border:1px solid #777;
-}
-
-.signup-btn{
-    background:#ffd21c;
-    color:#111;
-}
-
-/* HERO */
 
 .hero{
-    background:linear-gradient(135deg,#0c0d3c,#3213a5,#17165e);
-    color:white;
-    padding:75px 20px;
-}
-
-.hero-container{
-    max-width:1200px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:1.15fr .85fr;
-    gap:55px;
-    align-items:center;
+  background:linear-gradient(135deg,#21106f,#3818b5,#21106f);
+  color:white;
+  padding:70px 7% 80px;
 }
 
 .hero h1{
-    font-size:55px;
-    line-height:1.08;
-    margin-bottom:20px;
+  font-size:54px;
+  line-height:1.05;
+  max-width:700px;
 }
 
 .hero h1 span{
-    color:#ffd21c;
+  color:#ffd21c;
 }
 
-.hero-text{
-    color:#ddd;
-    font-size:18px;
-    max-width:620px;
-    margin-bottom:30px;
+.hero p{
+  font-size:19px;
+  line-height:1.7;
+  max-width:700px;
+  margin:25px 0;
+  color:#eeeeff;
 }
 
 .hero-buttons{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
 }
 
-.primary-btn{
-    background:#ffd21c;
-    color:#111;
+.primary{
+  background:#ffd21c;
+  color:#11112c;
+  padding:15px 25px;
+  border-radius:12px;
 }
 
-.outline-btn{
-    background:transparent;
-    color:white;
-    border:1px solid #aaa;
+.secondary{
+  background:transparent;
+  color:white;
+  border:1px solid #ffffff99;
+  padding:15px 25px;
+  border-radius:12px;
 }
 
-.hero-card{
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.2);
-    border-radius:24px;
-    padding:32px;
-    backdrop-filter:blur(10px);
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
 }
 
-.hero-card h2{
-    margin-bottom:20px;
+.section{
+  padding:55px 0;
 }
 
-.hero-check{
-    margin:15px 0;
-    color:#c4ffb0;
+.section h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:30px;
 }
 
-.hero-card .signup-btn{
-    width:100%;
-    margin-top:15px;
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
-/* GENERAL SECTION */
-
-section{
-    max-width:1200px;
-    margin:auto;
-    padding:65px 20px;
+.card{
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 5px 20px #0000000d;
+  border:1px solid #eeeeff;
 }
 
-.section-heading{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-    margin-bottom:25px;
+.card h3{
+  margin:12px 0;
+  font-size:21px;
 }
 
-.section-heading h2{
-    font-size:30px;
+.card p{
+  color:#666;
+  line-height:1.6;
 }
 
-.section-heading a{
-    color:#5420df;
-    text-decoration:none;
-    font-weight:700;
+.icon{
+  font-size:35px;
 }
 
-/* OFFERS */
-
-.offers-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
+.offer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
 }
 
-.offer-card{
-    background:white;
-    border-radius:18px;
-    padding:22px;
-    box-shadow:0 5px 25px rgba(0,0,0,.07);
-    transition:.2s;
+.reward{
+  color:#159447;
+  font-weight:800;
+  margin-top:8px;
 }
 
-.offer-card:hover{
-    transform:translateY(-4px);
+.task-btn{
+  background:#3215a5;
+  color:white;
+  padding:11px 16px;
+  border-radius:10px;
+  white-space:nowrap;
 }
 
-.offer-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:18px;
+.steps{
+  counter-reset:step;
 }
 
-.offer-icon{
-    width:52px;
-    height:52px;
-    border-radius:14px;
-    background:#eee;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:24px;
-}
-
-.reward-badge{
-    background:#dcffdf;
-    color:#078b2d;
-    padding:6px 10px;
-    border-radius:8px;
-    font-weight:800;
-    font-size:13px;
-}
-
-.offer-card h3{
-    margin-bottom:7px;
-}
-
-.offer-card p{
-    color:#666;
-    font-size:14px;
-    margin-bottom:18px;
-}
-
-.offer-info{
-    display:flex;
-    justify-content:space-between;
-    font-size:13px;
-    color:#777;
-    margin-bottom:15px;
-}
-
-.offer-button{
-    width:100%;
-    padding:11px;
-    border:1px solid #5a26e8;
-    background:white;
-    color:#5420df;
-    border-radius:9px;
-    font-weight:700;
-    cursor:pointer;
-}
-
-.offer-button:hover{
-    background:#f1edff;
-}
-
-/* NOTE */
-
-.demo-note{
-    margin-top:18px;
-    padding:14px 16px;
-    background:#fff8dc;
-    border:1px solid #f0df8a;
-    border-radius:10px;
-    color:#6d5b00;
-    font-size:13px;
-}
-
-/* GAMES */
-
-.games-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
-.game-card{
-    background:white;
-    border-radius:20px;
-    padding:28px;
-    box-shadow:0 5px 25px rgba(0,0,0,.06);
-}
-
-.game-icon{
-    font-size:38px;
-    margin-bottom:12px;
-}
-
-.game-card h3{
-    font-size:22px;
-    margin-bottom:8px;
-}
-
-.game-card p{
-    color:#666;
-}
-
-.game-button{
-    margin-top:18px;
-    background:#5825e8;
-    color:white;
-}
-
-/* LEADERBOARD */
-
-.leaderboard{
-    background:white;
-    border-radius:20px;
-    padding:25px;
-    box-shadow:0 5px 25px rgba(0,0,0,.06);
-}
-
-.rank{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:15px 5px;
-    border-bottom:1px solid #eee;
-}
-
-.rank:last-child{
-    border-bottom:none;
-}
-
-.rank-name{
-    font-weight:700;
-}
-
-.rank-value{
-    color:#0a9d32;
-    font-weight:800;
-}
-
-/* HOW IT WORKS */
-
-.steps-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.step-card{
-    background:white;
-    padding:25px;
-    border-radius:18px;
-    text-align:center;
-    box-shadow:0 5px 20px rgba(0,0,0,.05);
+.step{
+  background:white;
+  padding:22px;
+  border-radius:15px;
+  margin:12px 0;
+  display:flex;
+  gap:15px;
+  align-items:center;
+  box-shadow:0 3px 15px #00000008;
 }
 
 .step-number{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    background:#5725e7;
-    color:white;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    margin:0 auto 15px;
-    font-weight:800;
+  background:#ffd21c;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  flex-shrink:0;
 }
 
-.step-card h3{
-    margin-bottom:8px;
+.dashboard{
+  background:#0c0c35;
+  color:white;
+  border-radius:22px;
+  padding:30px;
 }
 
-.step-card p{
-    color:#666;
-    font-size:14px;
+.code-box{
+  background:#ffffff12;
+  border:1px solid #ffffff25;
+  padding:18px;
+  border-radius:13px;
+  margin-top:15px;
 }
 
-/* FEATURES */
-
-.features-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+.code{
+  font-size:24px;
+  color:#ffd21c;
+  font-weight:800;
+  letter-spacing:2px;
 }
 
-.feature{
-    background:white;
-    padding:25px;
-    border-radius:18px;
-    box-shadow:0 5px 20px rgba(0,0,0,.05);
+.copy{
+  background:#ffd21c;
+  padding:10px 15px;
+  border-radius:9px;
+  margin-left:10px;
 }
-
-.feature-icon{
-    font-size:30px;
-    margin-bottom:10px;
-}
-
-.feature p{
-    color:#666;
-    font-size:14px;
-}
-
-/* CTA */
-
-.cta{
-    max-width:1160px;
-    margin:0 auto 65px;
-    padding:45px 30px;
-    border-radius:25px;
-    background:linear-gradient(135deg,#1a115f,#5725e8);
-    color:white;
-    text-align:center;
-}
-
-.cta h2{
-    font-size:32px;
-    margin-bottom:10px;
-}
-
-.cta p{
-    color:#ddd;
-    margin-bottom:20px;
-}
-
-/* FOOTER */
 
 footer{
-    background:#080b2b;
-    color:white;
-    padding:45px 20px;
+  background:#09092d;
+  color:#bbb;
+  text-align:center;
+  padding:30px 15px;
+  margin-top:20px;
 }
 
-.footer-container{
-    max-width:1200px;
-    margin:auto;
-    text-align:center;
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#00000099;
+  z-index:100;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
 
-.footer-logo{
-    font-size:24px;
-    font-weight:800;
+.modal-box{
+  background:white;
+  width:100%;
+  max-width:420px;
+  border-radius:20px;
+  padding:28px;
+  position:relative;
 }
 
-.footer-logo span{
-    color:#ffd21c;
+.close{
+  position:absolute;
+  right:18px;
+  top:15px;
+  background:none;
+  font-size:25px;
 }
 
-.footer-links{
-    margin:20px 0;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:20px;
+.modal-box h2{
+  margin-bottom:20px;
 }
 
-.footer-links a{
-    color:#ccc;
-    text-decoration:none;
-    font-size:14px;
+input{
+  width:100%;
+  padding:14px;
+  margin:8px 0;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:15px;
 }
 
-.footer-description{
-    color:#999;
-    font-size:13px;
+.submit{
+  width:100%;
+  margin-top:12px;
+  padding:14px;
+  background:#3215a5;
+  color:white;
+  border-radius:10px;
 }
 
-/* MOBILE MENU BUTTON */
+.mobile-menu{
+  display:none;
+}
 
-.menu-button{
+@media(max-width:750px){
+
+  header{
+    padding:14px 4%;
+  }
+
+  .logo{
+    font-size:23px;
+  }
+
+  nav .lang{
     display:none;
-    background:transparent;
-    color:white;
-    border:1px solid #777;
-    border-radius:8px;
-    padding:8px 11px;
-    font-size:20px;
+  }
+
+  .hero{
+    padding:50px 6% 60px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .offer{
+    align-items:flex-start;
+  }
+
+  .section h2{
+    font-size:28px;
+  }
 }
-
-/* RESPONSIVE */
-
-@media(max-width:950px){
-
-    .nav-links{
-        display:none;
-    }
-
-    .menu-button{
-        display:block;
-    }
-
-    .hero-container{
-        grid-template-columns:1fr;
-    }
-
-    .offers-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .steps-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .features-grid{
-        grid-template-columns:1fr 1fr;
-    }
-}
-
-@media(max-width:600px){
-
-    .navbar{
-        min-height:65px;
-        padding:0 15px;
-    }
-
-    .logo{
-        font-size:21px;
-    }
-
-    .login-btn{
-        display:none;
-    }
-
-    .hero{
-        padding:55px 18px;
-    }
-
-    .hero h1{
-        font-size:38px;
-    }
-
-    .hero-text{
-        font-size:16px;
-    }
-
-    section{
-        padding:45px 15px;
-    }
-
-    .section-heading{
-        align-items:flex-start;
-        flex-direction:column;
-    }
-
-    .section-heading h2{
-        font-size:25px;
-    }
-
-    .offers-grid,
-    .games-grid,
-    .steps-grid,
-    .features-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-    }
-
-    .hero-buttons .btn{
-        width:100%;
-    }
-
-    .cta{
-        margin:0 15px 45px;
-    }
-
-    .cta h2{
-        font-size:26px;
-    }
-}
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- HEADER -->
-
 <header>
+  <div class="logo">Refer<span>Loop</span></div>
 
-<div class="navbar">
+  <nav>
+    <button class="lang" onclick="changeLanguage()">
+      🌐 <span id="language">English</span>
+    </button>
 
-<a href="#home" class="logo">
-Refer<span>-Loop</span>
-</a>
-
-<nav class="nav-links">
-
-<a href="#home">Home</a>
-<a href="#offers">Offers</a>
-<a href="#games">Games</a>
-<a href="#leaderboard">Leaderboard</a>
-<a href="#how">How It Works</a>
-
-</nav>
-
-<div class="auth-buttons">
-
-<button class="btn login-btn" onclick="loginRequired()">
-Login
-</button>
-
-<button class="btn signup-btn" onclick="loginRequired()">
-Sign Up
-</button>
-
-</div>
-
-<button class="menu-button" onclick="menuMessage()">
-☰
-</button>
-
-</div>
-
+    <button class="signup" onclick="openModal()">
+      <span data-en="Sign Up" data-hi="साइन अप" data-gu="સાઇન અપ">Sign Up</span>
+    </button>
+  </nav>
 </header>
 
 
 <!-- HERO -->
+<section class="hero">
+  <div class="container">
 
-<div class="hero" id="home">
+    <h1>
+      <span data-en="Refer. Complete Tasks."
+            data-hi="रेफर करें। टास्क पूरे करें।"
+            data-gu="રેફર કરો. ટાસ્ક પૂર્ણ કરો.">
+        Refer. Complete Tasks.
+      </span>
+      <br>
 
-<div class="hero-container">
+      <span data-en="Get Rewarded!"
+            data-hi="रिवॉर्ड पाएं!"
+            data-gu="રિવોર્ડ મેળવો!">
+        Get Rewarded!
+      </span>
+    </h1>
 
-<div>
+    <p
+      data-en="Discover referral offers, complete tasks, earn rewards and track your rewards — all in one place."
+      data-hi="रेफरल ऑफर खोजें, टास्क पूरे करें, रिवॉर्ड कमाएं और अपने रिवॉर्ड ट्रैक करें — सब एक जगह।"
+      data-gu="રેફરલ ઓફર્સ શોધો, ટાસ્ક પૂર્ણ કરો, રિવોર્ડ મેળવો અને તમારા રિવોર્ડ ટ્રેક કરો — બધું એક જ જગ્યાએ."
+    >
+      Discover referral offers, complete tasks, earn rewards and track your rewards — all in one place.
+    </p>
 
-<h1>
-Refer. Earn.<br>
-<span>Get Rewarded!</span>
-</h1>
+    <div class="hero-buttons">
 
-<p class="hero-text">
-Discover referral opportunities, share eligible offers
-with your friends and track your rewards in one place.
-</p>
+      <button class="primary" onclick="scrollToOffers()"
+        data-en="Explore Offers →"
+        data-hi="ऑफर्स देखें →"
+        data-gu="ઓફર્સ જુઓ →">
+        Explore Offers →
+      </button>
 
-<div class="hero-buttons">
+      <button class="secondary" onclick="scrollToHow()"
+        data-en="How It Works"
+        data-hi="यह कैसे काम करता है"
+        data-gu="આ કેવી રીતે કામ કરે છે">
+        How It Works
+      </button>
 
-<button class="btn primary-btn"
-onclick="goToOffers()">
-Explore Offers →
-</button>
+    </div>
 
-<button class="btn outline-btn"
-onclick="goToHow()">
-How It Works
-</button>
-
-</div>
-
-</div>
-
-
-<div class="hero-card">
-
-<h2>Join Refer-Loop</h2>
-
-<div class="hero-check">
-✓ Browse offers without an account
-</div>
-
-<div class="hero-check">
-✓ Create an account to refer
-</div>
-
-<div class="hero-check">
-✓ Track eligible rewards
-</div>
-
-<div class="hero-check">
-✓ Simple and transparent system
-</div>
-
-<button class="btn signup-btn"
-onclick="loginRequired()">
-Create Free Account →
-</button>
-
-</div>
-
-</div>
-
-</div>
+  </div>
+</section>
 
 
 <!-- OFFERS -->
+<section class="section" id="offers">
+  <div class="container">
 
-<section id="offers">
+    <h2
+      data-en="Featured Offers"
+      data-hi="फीचर्ड ऑफर्स"
+      data-gu="ફીચર્ડ ઓફર્સ">
+      Featured Offers
+    </h2>
 
-<div class="section-heading">
+    <div class="cards">
 
-<h2>🔥 Featured Referral Offers</h2>
+      <div class="card">
+        <div class="icon">🎁</div>
 
-<a href="#" onclick="showAllOffers(event)">
-View All Offers →
-</a>
+        <h3>Offer 01</h3>
 
-</div>
+        <p
+          data-en="Complete the eligible task and receive the listed reward."
+          data-hi="योग्य टास्क पूरा करें और दिया गया रिवॉर्ड प्राप्त करें।"
+          data-gu="યોગ્ય ટાસ્ક પૂર્ણ કરો અને દર્શાવેલ રિવોર્ડ મેળવો.">
+          Complete the eligible task and receive the listed reward.
+        </p>
 
+        <div class="reward">Reward: ₹50</div>
 
-<div class="offers-grid">
+        <br>
 
+        <button class="task-btn" onclick="startTask('Offer 01')"
+          data-en="View Task"
+          data-hi="टास्क देखें"
+          data-gu="ટાસ્ક જુઓ">
+          View Task
+        </button>
+      </div>
 
-<!-- OFFER 1 -->
 
-<div class="offer-card">
+      <div class="card">
+        <div class="icon">💰</div>
 
-<div class="offer-top">
+        <h3>Offer 02</h3>
 
-<div class="offer-icon">
-📱
-</div>
+        <p
+          data-en="Check the offer requirements before completing the task."
+          data-hi="टास्क पूरा करने से पहले ऑफर की शर्तें देखें।"
+          data-gu="ટાસ્ક પૂર્ણ કરતા પહેલા ઓફરની શરતો તપાસો.">
+          Check the offer requirements before completing the task.
+        </p>
 
-<div class="reward-badge">
-Demo
-</div>
+        <div class="reward">Reward: ₹100</div>
 
-</div>
+        <br>
 
-<h3>Sample Offer 1</h3>
+        <button class="task-btn" onclick="startTask('Offer 02')"
+          data-en="View Task"
+          data-hi="टास्क देखें"
+          data-gu="ટાસ્ક જુઓ">
+          View Task
+        </button>
+      </div>
 
-<p>
-Referral opportunity details will appear here.
-</p>
 
-<div class="offer-info">
-<span>Reward</span>
-<span>See terms</span>
-</div>
+      <div class="card">
+        <div class="icon">🏆</div>
 
-<button class="offer-button"
-onclick="openOffer('Sample Offer 1')">
-View Offer
-</button>
+        <h3>Offer 03</h3>
 
-</div>
+        <p
+          data-en="Complete all eligible requirements to qualify for the reward."
+          data-hi="रिवॉर्ड पाने के लिए सभी योग्य शर्तें पूरी करें।"
+          data-gu="રિવોર્ડ મેળવવા માટે તમામ યોગ્ય શરતો પૂર્ણ કરો.">
+          Complete all eligible requirements to qualify for the reward.
+        </p>
 
+        <div class="reward">Reward: ₹150</div>
 
-<!-- OFFER 2 -->
+        <br>
 
-<div class="offer-card">
+        <button class="task-btn" onclick="startTask('Offer 03')"
+          data-en="View Task"
+          data-hi="टास्क देखें"
+          data-gu="ટાસ્ક જુઓ">
+          View Task
+        </button>
+      </div>
 
-<div class="offer-top">
-
-<div class="offer-icon">
-💳
-</div>
-
-<div class="reward-badge">
-Demo
-</div>
-
-</div>
-
-<h3>Sample Offer 2</h3>
-
-<p>
-Complete the eligible action according to the offer terms.
-</p>
-
-<div class="offer-info">
-<span>Reward</span>
-<span>See terms</span>
-</div>
-
-<button class="offer-button"
-onclick="openOffer('Sample Offer 2')">
-View Offer
-</button>
-
-</div>
-
-
-<!-- OFFER 3 -->
-
-<div class="offer-card">
-
-<div class="offer-top">
-
-<div class="offer-icon">
-🎁
-</div>
-
-<div class="reward-badge">
-Demo
-</div>
-
-</div>
-
-<h3>Sample Offer 3</h3>
-
-<p>
-Only eligible referrals will qualify for rewards.
-</p>
-
-<div class="offer-info">
-<span>Reward</span>
-<span>See terms</span>
-</div>
-
-<button class="offer-button"
-onclick="openOffer('Sample Offer 3')">
-View Offer
-</button>
-
-</div>
-
-
-<!-- OFFER 4 -->
-
-<div class="offer-card">
-
-<div class="offer-top">
-
-<div class="offer-icon">
-⭐
-</div>
-
-<div class="reward-badge">
-Demo
-</div>
-
-</div>
-
-<h3>Sample Offer 4</h3>
-
-<p>
-Offer information will be updated from the admin panel.
-</p>
-
-<div class="offer-info">
-<span>Reward</span>
-<span>See terms</span>
-</div>
-
-<button class="offer-button"
-onclick="openOffer('Sample Offer 4')">
-View Offer
-</button>
-
-</div>
-
-
-</div>
-
-
-<div class="demo-note">
-
-<strong>Demo Notice:</strong>
-The offers shown above are placeholders for the website design.
-Real offers, rewards and referral links will only be added after
-their terms and eligibility requirements are verified.
-
-</div>
-
-</section>
-
-
-<!-- GAMES -->
-
-<section id="games">
-
-<div class="section-heading">
-
-<h2>🎮 Play Mini Games</h2>
-
-</div>
-
-
-<div class="games-grid">
-
-
-<div class="game-card">
-
-<div class="game-icon">
-🧠
-</div>
-
-<h3>Quiz Game</h3>
-
-<p>
-Answer questions, test your knowledge and collect points.
-</p>
-
-<button class="btn game-button"
-onclick="gameComing('Quiz Game')">
-Play Now
-</button>
-
-</div>
-
-
-<div class="game-card">
-
-<div class="game-icon">
-🎯
-</div>
-
-<h3>Memory Game</h3>
-
-<p>
-Test your memory with a simple and fun challenge.
-</p>
-
-<button class="btn game-button"
-onclick="gameComing('Memory Game')">
-Play Now
-</button>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- LEADERBOARD -->
-
-<section id="leaderboard">
-
-<div class="section-heading">
-
-<h2>🏆 Leaderboard</h2>
-
-</div>
-
-
-<div class="leaderboard">
-
-<div class="rank">
-
-<span class="rank-name">
-🥇 Top User
-</span>
-
-<span class="rank-value">
-Coming Soon
-</span>
-
-</div>
-
-
-<div class="rank">
-
-<span class="rank-name">
-🥈 Second User
-</span>
-
-<span class="rank-value">
-Coming Soon
-</span>
-
-</div>
-
-
-<div class="rank">
-
-<span class="rank-name">
-🥉 Third User
-</span>
-
-<span class="rank-value">
-Coming Soon
-</span>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
 
 
 <!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="container">
 
-<section id="how">
+    <h2
+      data-en="How ReferLoop Works"
+      data-hi="ReferLoop कैसे काम करता है"
+      data-gu="ReferLoop કેવી રીતે કામ કરે છે">
+      How ReferLoop Works
+    </h2>
 
-<div class="section-heading">
+    <div class="steps">
 
-<h2>How It Works</h2>
+      <div class="step">
+        <div class="step-number">1</div>
 
-</div>
+        <div>
+          <h3
+            data-en="Explore Offers"
+            data-hi="ऑफर्स देखें"
+            data-gu="ઓફર્સ જુઓ">
+            Explore Offers
+          </h3>
 
-
-<div class="steps-grid">
-
-
-<div class="step-card">
-
-<div class="step-number">
-1
-</div>
-
-<h3>Browse</h3>
-
-<p>
-Explore available referral opportunities without creating an account.
-</p>
-
-</div>
-
-
-<div class="step-card">
-
-<div class="step-number">
-2
-</div>
-
-<h3>Create Account</h3>
-
-<p>
-Sign up when you want to refer an offer or track your rewards.
-</p>
-
-</div>
+          <p
+            data-en="Browse available referral offers and tasks."
+            data-hi="उपलब्ध रेफरल ऑफर्स और टास्क देखें।"
+            data-gu="ઉપલબ્ધ રેફરલ ઓફર્સ અને ટાસ્ક જુઓ.">
+            Browse available referral offers and tasks.
+          </p>
+        </div>
+      </div>
 
 
-<div class="step-card">
+      <div class="step">
+        <div class="step-number">2</div>
 
-<div class="step-number">
-3
-</div>
+        <div>
+          <h3
+            data-en="Get Your ReferLoop Code"
+            data-hi="अपना ReferLoop कोड पाएं"
+            data-gu="તમારો ReferLoop કોડ મેળવો">
+            Get Your ReferLoop Code
+          </h3>
 
-<h3>Share</h3>
-
-<p>
-Use your eligible referral link and share it with others.
-</p>
-
-</div>
-
-
-<div class="step-card">
-
-<div class="step-number">
-4
-</div>
-
-<h3>Get Rewarded</h3>
-
-<p>
-Eligible and approved rewards will appear in your account.
-</p>
-
-</div>
+          <p
+            data-en="Create an account to get your unique referral code."
+            data-hi="अपना यूनिक रेफरल कोड पाने के लिए अकाउंट बनाएं।"
+            data-gu="તમારો યુનિક રેફરલ કોડ મેળવવા માટે એકાઉન્ટ બનાવો.">
+            Create an account to get your unique referral code.
+          </p>
+        </div>
+      </div>
 
 
-</div>
+      <div class="step">
+        <div class="step-number">3</div>
 
+        <div>
+          <h3
+            data-en="Complete Tasks"
+            data-hi="टास्क पूरे करें"
+            data-gu="ટાસ્ક પૂર્ણ કરો">
+            Complete Tasks
+          </h3>
+
+          <p
+            data-en="Follow the offer requirements and complete eligible tasks."
+            data-hi="ऑफर की शर्तों का पालन करके योग्य टास्क पूरे करें।"
+            data-gu="ઓફરની શરતોનું પાલન કરીને યોગ્ય ટાસ્ક પૂર્ણ કરો.">
+            Follow the offer requirements and complete eligible tasks.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="step">
+        <div class="step-number">4</div>
+
+        <div>
+          <h3
+            data-en="Earn Rewards"
+            data-hi="रिवॉर्ड कमाएं"
+            data-gu="રિવોર્ડ મેળવો">
+            Earn Rewards
+          </h3>
+
+          <p
+            data-en="Receive rewards when eligible requirements are successfully completed."
+            data-hi="योग्य शर्तें पूरी होने पर रिवॉर्ड प्राप्त करें।"
+            data-gu="યોગ્ય શરતો સફળતાપૂર્વક પૂર્ણ થયા પછી રિવોર્ડ મેળવો.">
+            Receive rewards when eligible requirements are successfully completed.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="step">
+        <div class="step-number">5</div>
+
+        <div>
+          <h3
+            data-en="Track Your Rewards"
+            data-hi="अपने रिवॉर्ड ट्रैक करें"
+            data-gu="તમારા રિવોર્ડ ટ્રેક કરો">
+            Track Your Rewards
+          </h3>
+
+          <p
+            data-en="Keep track of completed tasks and earned rewards in your account."
+            data-hi="अपने अकाउंट में पूरे किए गए टास्क और रिवॉर्ड ट्रैक करें।"
+            data-gu="તમારા એકાઉન્ટમાં પૂર્ણ થયેલા ટાસ્ક અને રિવોર્ડ ટ્રેક કરો.">
+            Keep track of completed tasks and earned rewards in your account.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 
-<!-- FEATURES -->
+<!-- USER DASHBOARD PREVIEW -->
+<section class="section">
+  <div class="container">
 
-<section>
+    <div class="dashboard">
 
-<div class="section-heading">
+      <h2
+        data-en="Your ReferLoop Dashboard"
+        data-hi="आपका ReferLoop डैशबोर्ड"
+        data-gu="તમારું ReferLoop ડેશબોર્ડ">
+        Your ReferLoop Dashboard
+      </h2>
 
-<h2>Why Refer-Loop?</h2>
+      <p
+        data-en="Your referral code will be available after creating an account."
+        data-hi="अकाउंट बनाने के बाद आपका रेफरल कोड उपलब्ध होगा।"
+        data-gu="એકાઉન્ટ બનાવ્યા પછી તમારો રેફરલ કોડ ઉપલબ્ધ થશે.">
+        Your referral code will be available after creating an account.
+      </p>
 
-</div>
+      <div class="code-box">
 
+        <div
+          data-en="Your ReferLoop Code"
+          data-hi="आपका ReferLoop कोड"
+          data-gu="તમારો ReferLoop કોડ">
+          Your ReferLoop Code
+        </div>
 
-<div class="features-grid">
+        <br>
 
+        <span class="code">RL-DEMO01</span>
 
-<div class="feature">
+        <button class="copy" onclick="copyCode()"
+          data-en="Copy"
+          data-hi="कॉपी"
+          data-gu="કૉપી">
+          Copy
+        </button>
 
-<div class="feature-icon">
-🔎
-</div>
+      </div>
 
-<h3>Discover Offers</h3>
-
-<p>
-Find referral opportunities in one convenient place.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-📊
-</div>
-
-<h3>Track Rewards</h3>
-
-<p>
-Your future dashboard can show pending, approved and paid rewards.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-🔐
-</div>
-
-<h3>Transparent</h3>
-
-<p>
-Offer conditions and eligibility should be clearly displayed.
-</p>
-
-</div>
-
-
-</div>
-
+    </div>
+  </div>
 </section>
 
 
-<!-- CTA -->
+<!-- JOIN -->
+<section class="section">
+  <div class="container">
 
-<div class="cta">
+    <h2
+      data-en="Join ReferLoop"
+      data-hi="ReferLoop से जुड़ें"
+      data-gu="ReferLoop સાથે જોડાઓ">
+      Join ReferLoop
+    </h2>
 
-<h2>Ready to Start?</h2>
+    <div class="cards">
 
-<p>
-Create your free account when you're ready to refer and track rewards.
-</p>
+      <div class="card">
+        <div class="icon">👀</div>
 
-<button class="btn signup-btn"
-onclick="loginRequired()">
-Create Free Account
-</button>
+        <h3
+          data-en="Browse Without Account"
+          data-hi="बिना अकाउंट ऑफर्स देखें"
+          data-gu="એકાઉન્ટ વગર ઓફર્સ જુઓ">
+          Browse Without Account
+        </h3>
 
-</div>
+        <p
+          data-en="You can explore available offers before signing up."
+          data-hi="साइन अप करने से पहले उपलब्ध ऑफर्स देख सकते हैं।"
+          data-gu="સાઇન અપ કરતા પહેલા ઉપલબ્ધ ઓફર્સ જોઈ શકો છો.">
+          You can explore available offers before signing up.
+        </p>
+      </div>
 
 
-<!-- FOOTER -->
+      <div class="card">
+        <div class="icon">🔑</div>
+
+        <h3
+          data-en="Create Your Account"
+          data-hi="अपना अकाउंट बनाएं"
+          data-gu="તમારું એકાઉન્ટ બનાવો">
+          Create Your Account
+        </h3>
+
+        <p
+          data-en="Create an account when you want to use your referral code or track rewards."
+          data-hi="रेफरल कोड इस्तेमाल करने या रिवॉर्ड ट्रैक करने के लिए अकाउंट बनाएं।"
+          data-gu="રેફરલ કોડ વાપરવા અથવા રિવોર્ડ ટ્રેક કરવા માટે એકાઉન્ટ બનાવો.">
+          Create an account when you want to use your referral code or track rewards.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">📊</div>
+
+        <h3
+          data-en="Track Progress"
+          data-hi="प्रोग्रेस ट्रैक करें"
+          data-gu="પ્રગતિ ટ્રેક કરો">
+          Track Progress
+        </h3>
+
+        <p
+          data-en="See your completed tasks and eligible rewards in one place."
+          data-hi="अपने पूरे किए गए टास्क और योग्य रिवॉर्ड एक जगह देखें।"
+          data-gu="તમારા પૂર્ણ થયેલા ટાસ્ક અને યોગ્ય રિવોર્ડ એક જ જગ્યાએ જુઓ.">
+          See your completed tasks and eligible rewards in one place.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 <footer>
-
-<div class="footer-container">
-
-<div class="footer-logo">
-Refer<span>-Loop</span>
-</div>
-
-<div class="footer-links">
-
-<a href="#home">Home</a>
-<a href="#offers">Offers</a>
-<a href="#games">Games</a>
-<a href="#how">How It Works</a>
-<a href="#">Privacy</a>
-<a href="#">Terms</a>
-<a href="#">Contact</a>
-
-</div>
-
-<p class="footer-description">
-© 2026 Refer-Loop. All rights reserved.
-</p>
-
-</div>
-
+  <div>© 2026 ReferLoop</div>
+  <br>
+  <div
+    data-en="Refer • Complete Tasks • Earn Rewards"
+    data-hi="रेफर • टास्क पूरे करें • रिवॉर्ड पाएं"
+    data-gu="રેફર • ટાસ્ક પૂર્ણ કરો • રિવોર્ડ મેળવો">
+    Refer • Complete Tasks • Earn Rewards
+  </div>
 </footer>
+
+
+<!-- SIGNUP MODAL -->
+<div class="modal" id="modal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeModal()">×</button>
+
+    <h2
+      data-en="Create Account"
+      data-hi="अकाउंट बनाएं"
+      data-gu="એકાઉન્ટ બનાવો">
+      Create Account
+    </h2>
+
+    <input type="text" placeholder="Name">
+
+    <input type="email" placeholder="Email">
+
+    <input type="password" placeholder="Password">
+
+    <button class="submit" onclick="demoSignup()"
+      data-en="Create Account"
+      data-hi="अकाउंट बनाएं"
+      data-gu="એકાઉન્ટ બનાવો">
+      Create Account
+    </button>
+
+  </div>
+</div>
 
 
 <script>
 
+let currentLanguage = "en";
 
-function goToOffers(){
+function changeLanguage(){
 
-document.getElementById("offers").scrollIntoView({
-behavior:"smooth"
-});
+  if(currentLanguage === "en"){
+    currentLanguage = "hi";
+  }
+  else if(currentLanguage === "hi"){
+    currentLanguage = "gu";
+  }
+  else{
+    currentLanguage = "en";
+  }
+
+  const elements = document.querySelectorAll("[data-en]");
+
+  elements.forEach(el=>{
+    el.textContent = el.getAttribute("data-" + currentLanguage);
+  });
+
+  const language = document.getElementById("language");
+
+  if(currentLanguage === "en"){
+    language.textContent = "English";
+  }
+  else if(currentLanguage === "hi"){
+    language.textContent = "हिन्दी";
+  }
+  else{
+    language.textContent = "ગુજરાતી";
+  }
+}
+
+
+function scrollToOffers(){
+  document.getElementById("offers").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+
+function scrollToHow(){
+  document.getElementById("how").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+
+function openModal(){
+  document.getElementById("modal").style.display="flex";
+}
+
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+
+
+function demoSignup(){
+
+  alert(
+    currentLanguage === "gu"
+    ? "Account system હજુ demo છે. Backend જોડ્યા પછી real signup કામ કરશે."
+    : currentLanguage === "hi"
+    ? "Account system अभी demo है। Backend जोड़ने के बाद real signup काम करेगा."
+    : "The account system is currently a demo. Real signup will work after connecting a backend."
+  );
 
 }
 
 
-function goToHow(){
+function startTask(name){
 
-document.getElementById("how").scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-
-function loginRequired(){
-
-alert(
-"Login and Sign Up will be connected in the next development step."
-);
+  alert(
+    currentLanguage === "gu"
+    ? name + " પસંદ કર્યું. હવે અહીં real task/offer link ઉમેરવાનો રહેશે."
+    : currentLanguage === "hi"
+    ? name + " चुना गया। अब यहां real task/offer link जोड़ना होगा."
+    : name + " selected. A real task/offer link needs to be added here."
+  );
 
 }
 
 
-function menuMessage(){
+function copyCode(){
 
-alert(
-"Mobile menu will be connected in the next development step."
-);
+  navigator.clipboard.writeText("RL-DEMO01");
 
-}
-
-
-function openOffer(name){
-
-alert(
-name +
-"\n\nThis is a demo offer. Real referral links and reward terms will be added after verification."
-);
-
-}
-
-
-function showAllOffers(event){
-
-event.preventDefault();
-
-alert(
-"All referral offers will be available here."
-);
-
-}
-
-
-function gameComing(name){
-
-alert(
-name +
-"\n\nThe game will be added in the next development step."
-);
+  alert(
+    currentLanguage === "gu"
+    ? "Referral code copy થયો!"
+    : currentLanguage === "hi"
+    ? "Referral code कॉपी हो गया!"
+    : "Referral code copied!"
+  );
 
 }
 
 </script>
 
-
 </body>
-  </html>
+    </html>
