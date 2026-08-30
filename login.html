@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login | ReferLoop</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(99,91,255,0.12), transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(139,92,246,0.10), transparent 30%),
+        #f7f9fc;
+      color: #172033;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* MAIN */
+
+    .page {
+      width: 100%;
+      max-width: 1080px;
+      min-height: 650px;
+      background: white;
+      border: 1px solid #e6eaf0;
+      border-radius: 26px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      box-shadow: 0 30px 80px rgba(25,35,55,0.12);
+    }
+
+    /* LEFT SIDE */
+
+    .welcome {
+      padding: 55px;
+      color: white;
+      background: linear-gradient(145deg, #635bff, #5148d8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 23px;
+      font-weight: 800;
+      margin-bottom: 65px;
+    }
+
+    .logo-icon {
+      width: 43px;
+      height: 43px;
+      border-radius: 13px;
+      background: rgba(255,255,255,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .welcome h1 {
+      font-size: 44px;
+      line-height: 1.1;
+      letter-spacing: -1.7px;
+      margin-bottom: 18px;
+    }
+
+    .welcome > p {
+      color: rgba(255,255,255,0.82);
+      max-width: 420px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .features {
+      margin-top: 32px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin: 14px 0;
+      color: rgba(255,255,255,0.92);
+      font-size: 14px;
+    }
+
+    .feature-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    /* RIGHT SIDE */
+
+    .form-area {
+      padding: 55px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .back {
+      color: #697386;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 30px;
+    }
+
+    .back:hover {
+      color: #635bff;
+    }
+
+    .form-area h2 {
+      font-size: 32px;
+      letter-spacing: -0.8px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #737d8e;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    /* LOGIN METHOD */
+
+    .method {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 4px;
+      background: #f1f3f7;
+      border-radius: 11px;
+      margin-bottom: 23px;
+    }
+
+    .method button {
+      border: none;
+      background: transparent;
+      padding: 11px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-weight: 700;
+      color: #737d8e;
+      cursor: pointer;
+    }
+
+    .method button.active {
+      background: white;
+      color: #635bff;
+      box-shadow: 0 2px 8px rgba(25,35,55,0.08);
+    }
+
+    /* FORM */
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #dfe4ec;
+      border-radius: 10px;
+      outline: none;
+      font-family: inherit;
+      font-size: 14px;
+      color: #172033;
+      transition: 0.2s;
+    }
+
+    input:focus {
+      border-color: #635bff;
+      box-shadow: 0 0 0 3px rgba(99,91,255,0.10);
+    }
+
+    /* MOBILE INPUT */
+
+    .mobile-input {
+      display: flex;
+      gap: 8px;
+    }
+
+    .country {
+      width: 78px;
+      border: 1px solid #dfe4ec;
+      border-radius: 10px;
+      background: white;
+      padding: 0 8px;
+      font-family: inherit;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .mobile-input input {
+      flex: 1;
+    }
+
+    /* PASSWORD */
+
+    .password {
+      position: relative;
+    }
+
+    .password input {
+      padding-right: 60px;
+    }
+
+    .show {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: transparent;
+      color: #635bff;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* OPTIONS */
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 3px 0 22px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: #697386;
+    }
+
+    .remember input {
+      width: auto;
+    }
+
+    .forgot {
+      color: #635bff;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* BUTTON */
+
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #635bff;
+      color: white;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(99,91,255,0.22);
+      transition: 0.2s;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    /* DIVIDER */
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #9aa3b2;
+      font-size: 11px;
+      margin: 24px 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      height: 1px;
+      background: #e8ebf0;
+      flex: 1;
+    }
+
+    /* SIGN UP */
+
+    .signup {
+      text-align: center;
+      color: #697386;
+      font-size: 13px;
+    }
+
+    .signup a {
+      color: #635bff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    /* NOTE */
+
+    .note {
+      margin-top: 20px;
+      padding: 11px 13px;
+      background: #f6f7fb;
+      border-radius: 9px;
+      color: #7b8494;
+      font-size: 10px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* HIDDEN */
+
+    .hidden {
+      display: none;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      body {
+        padding: 12px;
+      }
+
+      .page {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+      }
+
+      .welcome {
+        padding: 32px;
+      }
+
+      .logo {
+        margin-bottom: 35px;
+      }
+
+      .welcome h1 {
+        font-size: 34px;
+      }
+
+      .features {
+        display: none;
+      }
+
+      .form-area {
+        padding: 32px;
+      }
+    }
+
+    @media (max-width: 450px) {
+
+      .welcome,
+      .form-area {
+        padding: 25px 20px;
+      }
+
+      .form-area h2 {
+        font-size: 28px;
+      }
+
+      .options {
+        align-items: flex-start;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="page">
+
+    <!-- LEFT -->
+
+    <div class="welcome">
+
+      <div class="logo">
+        <div class="logo-icon">↗</div>
+        <span>ReferLoop</span>
+      </div>
+
+      <h1>
+        Welcome back.
+      </h1>
+
+      <p>
+        Sign in to manage your tasks, referrals and
+        eligible rewards from one simple dashboard.
+      </p>
+
+      <div class="features">
+
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <span>Discover available tasks</span>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <span>Track your progress</span>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <span>Manage your referrals</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FORM -->
+
+    <div class="form-area">
+
+      <a href="index.html" class="back">
+        ← Back to ReferLoop
+      </a>
+
+      <h2>Log in</h2>
+
+      <p class="subtitle">
+        Choose how you want to sign in.
+      </p>
+
+
+      <!-- METHOD -->
+
+      <div class="method">
+
+        <button
+          id="emailTab"
+          class="active"
+          onclick="showEmail()">
+          📧 Email
+        </button>
+
+        <button
+          id="mobileTab"
+          onclick="showMobile()">
+          📱 Mobile
+        </button>
+
+      </div>
+
+
+      <form onsubmit="login(event)">
+
+        <!-- EMAIL -->
+
+        <div id="emailBox">
+
+          <div class="field">
+
+            <label for="email">
+              Email address
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              placeholder="you@example.com"
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- MOBILE -->
+
+        <div id="mobileBox" class="hidden">
+
+          <div class="field">
+
+            <label for="mobile">
+              Mobile number
+            </label>
+
+            <div class="mobile-input">
+
+              <select class="country">
+                <option>🇮🇳 +91</option>
+              </select>
+
+              <input
+                type="tel"
+                id="mobile"
+                placeholder="Enter mobile number"
+                maxlength="10"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PASSWORD -->
+
+        <div class="field">
+
+          <label for="password">
+            Password
+          </label>
+
+          <div class="password">
+
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+            >
+
+            <button
+              type="button"
+              class="show"
+              onclick="togglePassword()">
+              Show
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- OPTIONS -->
+
+        <div class="options">
+
+          <label class="remember">
+            <input type="checkbox">
+            Remember me
+          </label>
+
+          <a href="#" class="forgot" onclick="forgot(event)">
+            Forgot password?
+          </a>
+
+        </div>
+
+
+        <button class="login-btn" type="submit">
+          Log In →
+        </button>
+
+      </form>
+
+
+      <div class="divider">
+        OR
+      </div>
+
+
+      <div class="signup">
+
+        Don't have an account?
+
+        <a href="signup.html">
+          Create an account
+        </a>
+
+      </div>
+
+
+      <div class="note">
+        Secure authentication and account recovery will be
+        connected when the ReferLoop backend is added.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function showEmail() {
+
+      document.getElementById("emailBox")
+        .classList.remove("hidden");
+
+      document.getElementById("mobileBox")
+        .classList.add("hidden");
+
+      document.getElementById("emailTab")
+        .classList.add("active");
+
+      document.getElementById("mobileTab")
+        .classList.remove("active");
+
+    }
+
+
+    function showMobile() {
+
+      document.getElementById("mobileBox")
+        .classList.remove("hidden");
+
+      document.getElementById("emailBox")
+        .classList.add("hidden");
+
+      document.getElementById("mobileTab")
+        .classList.add("active");
+
+      document.getElementById("emailTab")
+        .classList.remove("active");
+
+    }
+
+
+    function togglePassword() {
+
+      const password =
+        document.getElementById("password");
+
+      const button =
+        document.querySelector(".show");
+
+      if (password.type === "password") {
+
+        password.type = "text";
+        button.textContent = "Hide";
+
+      } else {
+
+        password.type = "password";
+        button.textContent = "Show";
+
+      }
+
+    }
+
+
+    function login(event) {
+
+      event.preventDefault();
+
+      alert(
+        "Login interface is ready. Real authentication will be connected in the backend step."
+      );
+
+    }
+
+
+    function forgot(event) {
+
+      event.preventDefault();
+
+      alert(
+        "Password recovery will be connected with the account system."
+      );
+
+    }
+
+  </script>
+
+</body>
+              </html>
