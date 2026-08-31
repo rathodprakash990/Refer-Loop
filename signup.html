@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sign Up | ReferLoop</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(99,91,255,0.12), transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(139,92,246,0.10), transparent 30%),
+        #f7f9fc;
+
+      color: #172033;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1080px;
+      min-height: 650px;
+
+      background: white;
+
+      border: 1px solid #e6eaf0;
+      border-radius: 26px;
+
+      overflow: hidden;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      box-shadow: 0 30px 80px rgba(25,35,55,0.12);
+    }
+
+    /* LEFT SIDE */
+
+    .welcome {
+      padding: 55px;
+
+      color: white;
+
+      background:
+        linear-gradient(145deg, #635bff, #5148d8);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 23px;
+      font-weight: 800;
+
+      margin-bottom: 65px;
+    }
+
+    .logo-icon {
+      width: 43px;
+      height: 43px;
+
+      border-radius: 13px;
+
+      background: rgba(255,255,255,0.18);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 22px;
+    }
+
+    .welcome h1 {
+      font-size: 43px;
+      line-height: 1.1;
+
+      letter-spacing: -1.7px;
+
+      margin-bottom: 18px;
+    }
+
+    .welcome > p {
+      max-width: 420px;
+
+      color: rgba(255,255,255,0.82);
+
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .features {
+      margin-top: 32px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+
+      gap: 11px;
+
+      margin: 14px 0;
+
+      color: rgba(255,255,255,0.92);
+
+      font-size: 14px;
+    }
+
+    .feature-icon {
+      width: 24px;
+      height: 24px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,0.16);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 12px;
+    }
+
+    /* RIGHT SIDE */
+
+    .form-area {
+      padding: 50px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .back {
+      color: #697386;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      text-decoration: none;
+
+      margin-bottom: 28px;
+    }
+
+    .back:hover {
+      color: #635bff;
+    }
+
+    .form-area h2 {
+      font-size: 32px;
+
+      letter-spacing: -0.8px;
+
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #737d8e;
+
+      font-size: 14px;
+
+      margin-bottom: 24px;
+    }
+
+    /* FORM */
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+
+      padding: 13px 14px;
+
+      border: 1px solid #dfe4ec;
+
+      border-radius: 10px;
+
+      outline: none;
+
+      font-family: inherit;
+      font-size: 14px;
+
+      color: #172033;
+
+      transition: 0.2s;
+    }
+
+    input:focus {
+      border-color: #635bff;
+
+      box-shadow:
+        0 0 0 3px rgba(99,91,255,0.10);
+    }
+
+    /* MOBILE */
+
+    .mobile-input {
+      display: flex;
+      gap: 8px;
+    }
+
+    .country {
+      width: 82px;
+
+      border: 1px solid #dfe4ec;
+
+      border-radius: 10px;
+
+      background: white;
+
+      padding: 0 7px;
+
+      font-family: inherit;
+
+      font-weight: 600;
+
+      color: #374151;
+    }
+
+    .mobile-input input {
+      flex: 1;
+    }
+
+    /* REFERRAL */
+
+    .optional {
+      font-size: 11px;
+
+      color: #9aa3b2;
+
+      font-weight: 500;
+    }
+
+    /* CHECKBOX */
+
+    .terms {
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 8px;
+
+      margin: 8px 0 20px;
+
+      font-size: 11px;
+
+      color: #697386;
+
+      line-height: 1.5;
+    }
+
+    .terms input {
+      width: auto;
+
+      margin-top: 2px;
+    }
+
+    .terms a {
+      color: #635bff;
+
+      font-weight: 700;
+
+      text-decoration: none;
+    }
+
+    /* BUTTON */
+
+    .signup-btn {
+      width: 100%;
+
+      padding: 14px;
+
+      border: none;
+
+      border-radius: 10px;
+
+      background: #635bff;
+
+      color: white;
+
+      font-family: inherit;
+
+      font-size: 15px;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 10px 22px rgba(99,91,255,0.22);
+
+      transition: 0.2s;
+    }
+
+    .signup-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    /* LOGIN */
+
+    .login-text {
+      text-align: center;
+
+      color: #697386;
+
+      font-size: 13px;
+
+      margin-top: 22px;
+    }
+
+    .login-text a {
+      color: #635bff;
+
+      font-weight: 800;
+
+      text-decoration: none;
+    }
+
+    /* SUCCESS */
+
+    .success {
+      display: none;
+
+      text-align: center;
+
+      padding: 20px 0;
+    }
+
+    .success-icon {
+      width: 70px;
+      height: 70px;
+
+      margin: 0 auto 20px;
+
+      border-radius: 50%;
+
+      background: #ecfdf3;
+
+      color: #16a34a;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 34px;
+    }
+
+    .success h2 {
+      margin-bottom: 10px;
+    }
+
+    .success p {
+      color: #697386;
+
+      font-size: 14px;
+
+      margin-bottom: 22px;
+    }
+
+    .dashboard-btn {
+      display: inline-block;
+
+      padding: 12px 18px;
+
+      border-radius: 9px;
+
+      background: #635bff;
+
+      color: white;
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+      text-decoration: none;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      body {
+        padding: 12px;
+      }
+
+      .page {
+        grid-template-columns: 1fr;
+
+        max-width: 520px;
+      }
+
+      .welcome {
+        padding: 32px;
+      }
+
+      .logo {
+        margin-bottom: 35px;
+      }
+
+      .welcome h1 {
+        font-size: 34px;
+      }
+
+      .features {
+        display: none;
+      }
+
+      .form-area {
+        padding: 32px;
+      }
+    }
+
+    @media (max-width: 450px) {
+
+      .welcome,
+      .form-area {
+        padding: 25px 20px;
+      }
+
+      .form-area h2 {
+        font-size: 28px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="page">
+
+    <!-- LEFT -->
+
+    <div class="welcome">
+
+      <div class="logo">
+
+        <div class="logo-icon">
+          ↗
+        </div>
+
+        <span>
+          ReferLoop
+        </span>
+
+      </div>
+
+
+      <h1>
+        Start your journey.
+      </h1>
+
+
+      <p>
+        Create your ReferLoop account and discover
+        available tasks, referrals and eligible rewards
+        from one simple platform.
+      </p>
+
+
+      <div class="features">
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            ✓
+          </div>
+
+          <span>
+            Simple account setup
+          </span>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            ✓
+          </div>
+
+          <span>
+            Explore available tasks
+          </span>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            ✓
+          </div>
+
+          <span>
+            Track your activity
+          </span>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            ✓
+          </div>
+
+          <span>
+            Manage your referrals
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FORM -->
+
+    <div class="form-area">
+
+      <a
+        href="index.html"
+        class="back">
+
+        ← Back to ReferLoop
+
+      </a>
+
+
+      <div id="signupForm">
+
+        <h2>
+          Create your account
+        </h2>
+
+
+        <p class="subtitle">
+          Enter your details to get started.
+        </p>
+
+
+        <form onsubmit="createAccount(event)">
+
+
+          <!-- MOBILE -->
+
+          <div class="field">
+
+            <label for="mobile">
+              Mobile Number
+            </label>
+
+            <div class="mobile-input">
+
+              <select class="country">
+
+                <option>
+                  🇮🇳 +91
+                </option>
+
+              </select>
+
+
+              <input
+                type="tel"
+                id="mobile"
+                placeholder="Enter mobile number"
+                maxlength="10"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+          <!-- NAME -->
+
+          <div class="field">
+
+            <label for="name">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter your full name"
+              required
+            >
+
+          </div>
+
+
+          <!-- EMAIL -->
+
+          <div class="field">
+
+            <label for="email">
+              Email ID
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              placeholder="you@example.com"
+              required
+            >
+
+          </div>
+
+
+          <!-- REFERRAL -->
+
+          <div class="field">
+
+            <label for="referral">
+
+              Referral Code
+
+              <span class="optional">
+                (Optional)
+              </span>
+
+            </label>
+
+
+            <input
+              type="text"
+              id="referral"
+              placeholder="Enter referral code"
+            >
+
+          </div>
+
+
+          <!-- TERMS -->
+
+          <label class="terms">
+
+            <input
+              type="checkbox"
+              id="terms"
+              required
+            >
+
+            <span>
+              I agree to the
+              <a href="#">
+                Terms & Conditions
+              </a>
+              and
+              <a href="#">
+                Privacy Policy
+              </a>.
+            </span>
+
+          </label>
+
+
+          <!-- BUTTON -->
+
+          <button
+            type="submit"
+            class="signup-btn">
+
+            Create Account →
+
+          </button>
+
+        </form>
+
+
+        <div class="login-text">
+
+          Already have an account?
+
+          <a href="login.html">
+            Log in
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- SUCCESS -->
+
+      <div
+        class="success"
+        id="success">
+
+        <div class="success-icon">
+          ✓
+        </div>
+
+
+        <h2>
+          Sign Up Successfully!
+        </h2>
+
+
+        <p>
+          Your ReferLoop account has been created
+          successfully.
+        </p>
+
+
+        <a
+          href="dashboard.html"
+          class="dashboard-btn">
+
+          Go to Dashboard →
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function createAccount(event) {
+
+      event.preventDefault();
+
+
+      const mobile =
+        document.getElementById("mobile").value.trim();
+
+      const name =
+        document.getElementById("name").value.trim();
+
+      const email =
+        document.getElementById("email").value.trim();
+
+
+      /* MOBILE VALIDATION */
+
+      if (!/^[0-9]{10}$/.test(mobile)) {
+
+        alert(
+          "Please enter a valid 10-digit mobile number."
+        );
+
+        return;
+
+      }
+
+
+      /* NAME VALIDATION */
+
+      if (name.length < 2) {
+
+        alert(
+          "Please enter your full name."
+        );
+
+        return;
+
+      }
+
+
+      /* SHOW SUCCESS */
+
+      document.getElementById("signupForm")
+        .style.display = "none";
+
+      document.getElementById("success")
+        .style.display = "block";
+
+    }
+
+  </script>
+
+</body>
+</html>
